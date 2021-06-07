@@ -1,20 +1,41 @@
 package lt.viko.eif.eshopapi.controller;
 
-import lt.viko.eif.eshopapi.model.GraphicsCard;
+
 import lt.viko.eif.eshopapi.model.Manufacturer;
+import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.util.Optional;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping(value = "/manufacturer", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ManufacturerController {
+    @Autowired
+    ManufacturerRepository manufacturerRepository;
     /**
      * Get a list of Manufacturer objects
      * @return
      */
     @GetMapping
-    public String getManufacturers() {
-        return "Manufacturers";
+    public ResponseEntity<CollectionModel<Manufacturer>> getManufacturers() {
+
+        CollectionModel<Manufacturer> model = CollectionModel.of(manufacturerRepository.findAll());
+
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(ManufacturerController.class).getManufacturerById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 
     /**
@@ -23,8 +44,19 @@ public class ManufacturerController {
      * @return
      */
     @GetMapping("/{id}")
-    public String getManufacturerById(@PathVariable(value = "id") long id){
-        return "Manufacturer by id";
+    public ResponseEntity<EntityModel<Manufacturer>> getManufacturerById(@PathVariable(value = "id") long id){
+        Optional<Manufacturer> manufacturer = manufacturerRepository.findById(id);
+        if(manufacturer.isEmpty())
+        {
+            return ResponseEntity.notFound().build();
+        }
+
+        EntityModel<Manufacturer> model = EntityModel.of(manufacturer.get());
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(ManufacturerController.class).getManufacturers()).withRel("get-all"));
+
+        return ResponseEntity.ok(model);
     }
 
     /**
@@ -33,8 +65,14 @@ public class ManufacturerController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public String deleteManufacturerById(@PathVariable long id){
-        return "Delete Manufacturer by id";
+    public ResponseEntity deleteManufacturerById(@PathVariable long id){
+        Optional<Manufacturer> manufacturer = manufacturerRepository.findById(id);
+        if (manufacturer.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        manufacturerRepository.delete(manufacturer.get());
+        return ResponseEntity.ok().build();
     }
 
     /**
