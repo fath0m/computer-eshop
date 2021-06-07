@@ -1,18 +1,40 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.model.Memory;
+import lt.viko.eif.eshopapi.repository.MemoryRepository;
+import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.util.Optional;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping(value = "/memory", produces = MediaType.APPLICATION_JSON_VALUE)
 public class MemoryController {
+    @Autowired
+    MemoryRepository memoryRepository;
     /**
      * Get a list of Memory objects
      * @return
      */
     @GetMapping
-    public String getMemorys() {
-        return "Memorys";
+    public ResponseEntity<CollectionModel<Memory>> getMemories() {
+        CollectionModel<Memory> model = CollectionModel.of(memoryRepository.findAll());
+
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(MemoryController.class).getMemoryById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 
     /**
@@ -21,8 +43,20 @@ public class MemoryController {
      * @return
      */
     @GetMapping("/{id}")
-    public String getMemoryById(@PathVariable(value = "id") long id){
-        return "Get Memory by id";
+    public ResponseEntity<EntityModel<Memory>> getMemoryById(@PathVariable(value = "id") long id){
+        Optional<Memory> memory = memoryRepository.findById(id);
+
+        if(memory.isEmpty())
+        {
+            return ResponseEntity.notFound().build();
+        }
+
+        EntityModel<Memory> model = EntityModel.of(memory.get());
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(MemoryController.class).getMemories()).withRel("get-all"));
+
+        return ResponseEntity.ok(model);
     }
 
     /**
@@ -31,8 +65,15 @@ public class MemoryController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public String deleteMemoryById(@PathVariable long id){
-        return "Delete Memory by id";
+    public ResponseEntity deleteMemoryById(@PathVariable long id){
+        Optional<Memory> memory = memoryRepository.findById(id);
+
+        if (memory.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        memoryRepository.delete(memory.get());
+        return ResponseEntity.ok().build();
     }
 
     /**
