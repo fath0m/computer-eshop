@@ -42,6 +42,16 @@ public class Computer {
     @JoinColumn(name = "storage_id", nullable = false)
     private Storage storage;
 
+    @JsonManagedReference
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name="ram_id", nullable = false)
+    private Ram ram;
+
+    @JsonManagedReference
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(name="motherboard_id", nullable = false)
+    private Motherboard motherboard;
+
     public Long getId() {
         return id;
     }
@@ -114,4 +124,11 @@ public class Computer {
         this.storage = storage;
     }
 
+    public Ram getRam() { return ram; }
+
+    public void setRam(Ram ram) { this.ram = ram; }
+
+    public Motherboard getMotherboard() { return motherboard; }
+
+    public void setMotherboard(Motherboard motherboard) { this.motherboard = motherboard; }
 }
