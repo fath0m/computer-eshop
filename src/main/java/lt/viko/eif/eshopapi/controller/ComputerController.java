@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.dto.computer.CreateComputerDTO;
 import lt.viko.eif.eshopapi.model.Computer;
 import lt.viko.eif.eshopapi.repository.ComputerRepository;
+import lt.viko.eif.eshopapi.service.ComputerService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -22,6 +25,9 @@ public class ComputerController {
 
     @Autowired
     ComputerRepository computerRepository;
+    
+    @Autowired
+    ComputerService computerService;
 
     /**
      * Get a list of computers
@@ -83,8 +89,18 @@ public class ComputerController {
      * @return
      */
     @PostMapping
-    public String addComputer(@RequestBody Computer computer){
-        return "Car added";
+    public ResponseEntity<EntityModel<Computer>> addComputer(@RequestBody CreateComputerDTO newComputer) {
+    	Computer computer = computerService.createComputer(newComputer);
+    	
+    	if (computer == null) {
+    		return ResponseEntity.badRequest().build();
+    	}
+    	
+    	EntityModel<Computer> model = EntityModel.of(computer);
+    	model.add(linkTo(methodOn(ComputerController.class).getComputers()).withRel("get-all"));
+    	model.add(linkTo(methodOn(ComputerController.class).getComputerById(12L)).withRel("get-one-by-id"));
+    	
+    	return ResponseEntity.ok(model);
     }
 
 }
