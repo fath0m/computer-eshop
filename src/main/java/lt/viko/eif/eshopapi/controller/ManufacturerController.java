@@ -18,7 +18,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/manufacturer", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/manufacturers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ManufacturerController {
     @Autowired
     ManufacturerRepository manufacturerRepository;

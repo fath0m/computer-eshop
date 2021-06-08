@@ -17,7 +17,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/storage", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/storages", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StorageController {
     @Autowired
     StorageRepository storageRepository;

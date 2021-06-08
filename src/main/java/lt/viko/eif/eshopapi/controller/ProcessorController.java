@@ -17,7 +17,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/cpu", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/processors", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProcessorController {
     @Autowired
     ProcessorRepository processorRepository;

@@ -18,7 +18,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/memory", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/memories", produces = MediaType.APPLICATION_JSON_VALUE)
 public class MemoryController {
     @Autowired
     MemoryRepository memoryRepository;

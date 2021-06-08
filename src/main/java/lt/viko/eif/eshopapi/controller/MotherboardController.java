@@ -17,7 +17,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/motherboard", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/motherboards", produces = MediaType.APPLICATION_JSON_VALUE)
 public class MotherboardController {
     @Autowired
     MotherboardRepository motherboardRepository;
