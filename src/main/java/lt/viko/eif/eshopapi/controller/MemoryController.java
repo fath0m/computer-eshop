@@ -2,7 +2,6 @@ package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.model.Memory;
 import lt.viko.eif.eshopapi.repository.MemoryRepository;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;

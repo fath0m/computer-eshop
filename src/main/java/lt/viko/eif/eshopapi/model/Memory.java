@@ -2,7 +2,6 @@ package lt.viko.eif.eshopapi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lt.viko.eif.eshopapi.constant.FrequencyUnit;
 import lt.viko.eif.eshopapi.constant.SizeUnit;
 
 import javax.persistence.*;
