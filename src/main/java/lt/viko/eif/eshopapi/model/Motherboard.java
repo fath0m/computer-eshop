@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "motherboard")
+@Table(name = "motherboards")
 public class Motherboard {
 
     @Id

@@ -1,30 +1,60 @@
 package lt.viko.eif.eshopapi.controller;
 
-import lt.viko.eif.eshopapi.model.Computer;
 import lt.viko.eif.eshopapi.model.GraphicsCard;
+import lt.viko.eif.eshopapi.repository.GraphicsCardRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.util.Optional;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/gpu", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/graphicsCards", produces = MediaType.APPLICATION_JSON_VALUE)
 public class GraphicCardController {
+    @Autowired
+    GraphicsCardRepository gpuRepository;
     /**
      * Get a list of Graphic cards
-     * @return
+     * @return ResponseEntity<CollectionModel<GraphicsCard>>
      */
     @GetMapping
-    public String getGraphicCards() {
-        return "GPUs";
+    public ResponseEntity<CollectionModel<GraphicsCard>> getGraphicCards() {
+        CollectionModel<GraphicsCard> model = CollectionModel.of(gpuRepository.findAll());
+
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(GraphicCardController.class).getGraphicCardById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 
     /**
      * Get Graphic card by provide id
      * @param id
-     * @return
+     * @return EntityModel<GraphicsCard>
      */
     @GetMapping("/{id}")
-    public String getGraphicCardById(@PathVariable(value = "id") long id){
-        return "GPU by id";
+    public ResponseEntity<EntityModel<GraphicsCard>> getGraphicCardById(@PathVariable(value = "id") long id){
+        Optional<GraphicsCard> gpu = gpuRepository.findById(id);
+
+        if(gpu.isEmpty())
+        {
+            return ResponseEntity.notFound().build();
+        }
+        EntityModel<GraphicsCard> model = EntityModel.of(gpu.get());
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(GraphicCardController.class).getGraphicCards()).withRel("get-all"));
+
+        return ResponseEntity.ok(model);
     }
 
     /**
@@ -33,8 +63,14 @@ public class GraphicCardController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public String deleteGraphicCardById(@PathVariable long id){
-        return "Delete by id";
+    public ResponseEntity deleteGraphicCardById(@PathVariable long id){
+        Optional<GraphicsCard> gpu = gpuRepository.findById(id);
+
+        if (gpu.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        gpuRepository.delete(gpu.get());
+        return ResponseEntity.ok().build();
     }
 
     /**

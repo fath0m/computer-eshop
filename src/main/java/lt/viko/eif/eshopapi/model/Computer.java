@@ -43,11 +43,6 @@ public class Computer {
     private Storage storage;
 
     @JsonManagedReference
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name="ram_id", nullable = false)
-    private Ram ram;
-
-    @JsonManagedReference
     @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name="motherboard_id", nullable = false)
     private Motherboard motherboard;
@@ -123,10 +118,6 @@ public class Computer {
     public void setStorage(Storage storage) {
         this.storage = storage;
     }
-
-    public Ram getRam() { return ram; }
-
-    public void setRam(Ram ram) { this.ram = ram; }
 
     public Motherboard getMotherboard() { return motherboard; }
 
