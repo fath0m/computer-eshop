@@ -82,7 +82,7 @@ public class ProcessorController {
     /**
      * Post(add) new Processor, provide Processor object
      * @param newProcessor
-     * @return
+     * @return ResponseEntity<EntityModel<Processor>>
      */
     @PostMapping
     public ResponseEntity<EntityModel<Processor>> addProcessor(@RequestBody CreateProcessorDTO newProcessor){

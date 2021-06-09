@@ -1,7 +1,9 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.dto.payment.CreatePaymentDTO;
 import lt.viko.eif.eshopapi.model.Payment;
 import lt.viko.eif.eshopapi.repository.PaymentRepository;
+import lt.viko.eif.eshopapi.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -21,6 +23,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class PaymentController {
     @Autowired
     PaymentRepository paymentRepository;
+    @Autowired
+    PaymentService paymentService;
 
     /**
      * Get a list of payment objects
@@ -79,5 +83,20 @@ public class PaymentController {
      * @return
      */
     @PostMapping
-    public String addPayment(@RequestBody PaymentController payment) { return "Payment added";}
+    public ResponseEntity<EntityModel<Payment>> addPayment(@RequestBody CreatePaymentDTO newPayment) {
+        /**
+         * calling paymentService function createPayment and providing newPayment from request body
+         */
+        Payment payment = paymentService.createPayment(newPayment);
+
+        if (payment == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        EntityModel<Payment> model = EntityModel.of(payment);
+        model.add(linkTo(methodOn(PaymentController.class).getPayments()).withRel("get-all"));
+        model.add(linkTo(methodOn(PaymentController.class).getPaymentById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
+    }
 }

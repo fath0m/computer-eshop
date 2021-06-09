@@ -88,6 +88,9 @@ public class StorageController {
      */
     @PostMapping
     public ResponseEntity<EntityModel<Storage>> addStorage(@RequestBody CreateStorageDTO newStorage){
+        /**
+         * calling storageService function createStorage and providing newStorage from request body
+         */
         Storage storage = storageService.createStorage(newStorage);
 
         if(storage == null){
