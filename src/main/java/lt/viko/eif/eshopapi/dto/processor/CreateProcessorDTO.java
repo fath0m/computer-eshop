@@ -1,6 +1,6 @@
 package lt.viko.eif.eshopapi.dto.processor;
 
-public class CreatePaymentDTO {
+public class CreateProcessorDTO {
 
     private String name;
     private int coreAmount;
