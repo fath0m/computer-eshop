@@ -41,6 +41,4 @@ public class StorageService {
 
         return storageRepository.save(storage);
     }
-
-
 }
