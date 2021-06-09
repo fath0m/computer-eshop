@@ -67,7 +67,7 @@ public class Checkout {
         DeliveryCountry = deliveryCountry;
     }
 
-    public boolean isPaidOut() {
+    public boolean getisPaidOut() {
         return IsPaidOut;
     }
 
