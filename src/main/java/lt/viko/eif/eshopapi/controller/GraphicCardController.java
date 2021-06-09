@@ -1,7 +1,9 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.dto.graphicCard.CreateGraphicCardDTO;
 import lt.viko.eif.eshopapi.model.GraphicsCard;
 import lt.viko.eif.eshopapi.repository.GraphicsCardRepository;
+import lt.viko.eif.eshopapi.service.GraphicCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -21,6 +23,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class GraphicCardController {
     @Autowired
     GraphicsCardRepository gpuRepository;
+    @Autowired
+    GraphicCardService graphicCardService;
     /**
      * Get a list of Graphic cards
      * @return ResponseEntity<CollectionModel<GraphicsCard>>
@@ -75,11 +79,23 @@ public class GraphicCardController {
 
     /**
      * Post(add) new Graphic card, provide Graphic card object
-     * @param gpu
-     * @return
+     * @param newGraphicCard
+     * @return ResponseEntity<EntityModel<GraphicsCard>>
      */
     @PostMapping
-    public String addGraphicCard(@RequestBody GraphicsCard gpu){
-        return "GPU added";
+    public ResponseEntity<EntityModel<GraphicsCard>> addGraphicCard(@RequestBody CreateGraphicCardDTO newGraphicCard){
+        /**
+         * calling graphicCardService function createGraphicsCard and providing newGraphicCard from request body
+         */
+        GraphicsCard graphicsCard = graphicCardService.createGraphicsCard(newGraphicCard);
+        if (graphicsCard == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        EntityModel<GraphicsCard> model = EntityModel.of(graphicsCard);
+        model.add(linkTo(methodOn(GraphicCardController.class).getGraphicCards()).withRel("get-all"));
+        model.add(linkTo(methodOn(GraphicCardController.class).getGraphicCardById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 }

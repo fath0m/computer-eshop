@@ -86,10 +86,12 @@ public class MemoryController {
      */
     @PostMapping
     public ResponseEntity<EntityModel<Memory>> addMemory(@RequestBody CreateMemoryDTO newMemory){
+        /**
+         * calling memoryService function createMemory and providing newMemory from request body
+         */
         Memory memory = memoryService.createMemory(newMemory);
-
         if (memory == null) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
 
         EntityModel<Memory> model = EntityModel.of(memory);

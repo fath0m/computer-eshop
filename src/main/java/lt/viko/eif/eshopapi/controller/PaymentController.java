@@ -79,8 +79,8 @@ public class PaymentController {
 
     /**
      * Post payment, provide payment object
-     * @param payment
-     * @return
+     * @param newPayment
+     * @return ResponseEntity<EntityModel<Payment>>
      */
     @PostMapping
     public ResponseEntity<EntityModel<Payment>> addPayment(@RequestBody CreatePaymentDTO newPayment) {
@@ -90,7 +90,7 @@ public class PaymentController {
         Payment payment = paymentService.createPayment(newPayment);
 
         if (payment == null) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
 
         EntityModel<Payment> model = EntityModel.of(payment);

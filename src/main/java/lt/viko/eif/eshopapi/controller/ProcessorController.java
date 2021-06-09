@@ -92,7 +92,7 @@ public class ProcessorController {
         Processor processor = processorService.createProcessor(newProcessor);
 
         if (processor == null) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
 
         EntityModel<Processor> model = EntityModel.of(processor);
