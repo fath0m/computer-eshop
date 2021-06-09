@@ -1,7 +1,9 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.dto.memory.CreateMemoryDTO;
 import lt.viko.eif.eshopapi.model.Memory;
 import lt.viko.eif.eshopapi.repository.MemoryRepository;
+import lt.viko.eif.eshopapi.service.MemoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -21,6 +23,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class MemoryController {
     @Autowired
     MemoryRepository memoryRepository;
+    @Autowired
+    MemoryService memoryService;
     /**
      * Get a list of Memory objects
      * @return
@@ -77,11 +81,21 @@ public class MemoryController {
 
     /**
      * Post(add) new Memory, provide Memory object
-     * @param memory
-     * @return
+     * @param newMemory
+     * @return ResponseEntity<EntityModel<Memory>>
      */
     @PostMapping
-    public String addManufacturerCard(@RequestBody MemoryController memory){
-        return "Memory added";
+    public ResponseEntity<EntityModel<Memory>> addMemory(@RequestBody CreateMemoryDTO newMemory){
+        Memory memory = memoryService.createMemory(newMemory);
+
+        if (memory == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        EntityModel<Memory> model = EntityModel.of(memory);
+        model.add(linkTo(methodOn(MemoryController.class).getMemories()).withRel("get-all"));
+        model.add(linkTo(methodOn(MemoryController.class).getMemoryById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 }
