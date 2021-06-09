@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.dto.processor.CreateProcessorDTO;
 import lt.viko.eif.eshopapi.model.Processor;
 import lt.viko.eif.eshopapi.repository.ProcessorRepository;
+import lt.viko.eif.eshopapi.service.ProcessorService;
+import org.apache.tomcat.jni.Proc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -21,6 +24,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class ProcessorController {
     @Autowired
     ProcessorRepository processorRepository;
+    @Autowired
+    ProcessorService processorService;
     /**
      * Get a list of Processor objects
      * @return
@@ -76,12 +81,25 @@ public class ProcessorController {
 
     /**
      * Post(add) new Processor, provide Processor object
-     * @param processor
+     * @param newProcessor
      * @return
      */
     @PostMapping
-    public String addProcessor(@RequestBody Processor processor){
-        return "Processor added";
+    public ResponseEntity<EntityModel<Processor>> addProcessor(@RequestBody CreateProcessorDTO newProcessor){
+        /**
+         * calling processorService function createProcessor and providing newProcessor from request body
+         */
+        Processor processor = processorService.createProcessor(newProcessor);
+
+        if (processor == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        EntityModel<Processor> model = EntityModel.of(processor);
+        model.add(linkTo(methodOn(ProcessorController.class).getProcessors()).withRel("get-all"));
+        model.add(linkTo(methodOn(ProcessorController.class).getProcessorById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 
 }
