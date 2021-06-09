@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.dto.storage.CreateStorageDTO;
 import lt.viko.eif.eshopapi.model.Storage;
 import lt.viko.eif.eshopapi.repository.StorageRepository;
+import lt.viko.eif.eshopapi.service.StorageService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -9,6 +12,7 @@ import org.springframework.hateoas.Link;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.Optional;
@@ -21,6 +25,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class StorageController {
     @Autowired
     StorageRepository storageRepository;
+    @Autowired
+    StorageService storageService;
     /**
      * Get a list of Storage objects
      * @return
@@ -77,11 +83,21 @@ public class StorageController {
 
     /**
      * Post(add) new Storage, provide Storage object
-     * @param storage
-     * @return
+     * @param newStorage
+     * @return ResponseEntity<EntityModel<Storage>>
      */
     @PostMapping
-    public String addProcessor(@RequestBody Storage storage){
-        return "Storage added";
+    public ResponseEntity<EntityModel<Storage>> addStorage(@RequestBody CreateStorageDTO newStorage){
+        Storage storage = storageService.createStorage(newStorage);
+
+        if(storage == null){
+            return ResponseEntity.badRequest().build();
+        }
+
+        EntityModel<Storage> model = EntityModel.of(storage);
+        model.add(linkTo(methodOn(StorageController.class).getStorages()).withRel("get-all"));
+        model.add(linkTo(methodOn(StorageController.class).getStorageById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 }

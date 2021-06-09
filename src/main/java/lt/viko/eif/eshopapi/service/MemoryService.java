@@ -9,9 +9,11 @@ import lt.viko.eif.eshopapi.model.Storage;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
 import lt.viko.eif.eshopapi.repository.MemoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class MemoryService {
     @Autowired
     MemoryRepository memoryRepository;

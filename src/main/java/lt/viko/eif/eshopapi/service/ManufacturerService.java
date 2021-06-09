@@ -5,7 +5,9 @@ import lt.viko.eif.eshopapi.dto.manufacturer.UpdateManufacturerDTO;
 import lt.viko.eif.eshopapi.model.Manufacturer;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ManufacturerService {
     @Autowired
     ManufacturerRepository manufacturerRepository;

@@ -8,9 +8,11 @@ import lt.viko.eif.eshopapi.repository.GraphicsCardRepository;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
 import org.hibernate.graph.Graph;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class GraphicCardService {
     @Autowired
     GraphicsCardRepository graphicsCardRepository;

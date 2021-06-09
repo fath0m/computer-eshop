@@ -5,7 +5,9 @@ import lt.viko.eif.eshopapi.dto.cart.UpdateCartDTO;
 import lt.viko.eif.eshopapi.model.Cart;
 import lt.viko.eif.eshopapi.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CartService {
     @Autowired
     CartRepository cartRepository;

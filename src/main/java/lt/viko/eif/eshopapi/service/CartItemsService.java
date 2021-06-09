@@ -10,9 +10,11 @@ import lt.viko.eif.eshopapi.repository.CartItemRepository;
 import lt.viko.eif.eshopapi.repository.CartRepository;
 import lt.viko.eif.eshopapi.repository.ComputerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class CartItemsService {
     /**
      * Adding repositories that we will need

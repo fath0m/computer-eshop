@@ -7,9 +7,11 @@ import lt.viko.eif.eshopapi.model.Processor;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
 import lt.viko.eif.eshopapi.repository.ProcessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class ProcessorService {
     @Autowired
     ProcessorRepository processorRepository;
