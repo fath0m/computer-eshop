@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lt.viko.eif.eshopapi.dto.computer.CreateComputerDTO;
 import lt.viko.eif.eshopapi.dto.computer.UpdateComputerDTO;
 import lt.viko.eif.eshopapi.model.Computer;
 import lt.viko.eif.eshopapi.model.GraphicsCard;

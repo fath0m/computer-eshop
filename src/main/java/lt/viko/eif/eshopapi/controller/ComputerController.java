@@ -1,6 +1,5 @@
 package lt.viko.eif.eshopapi.controller;
 
-import lt.viko.eif.eshopapi.dto.computer.CreateComputerDTO;
 import lt.viko.eif.eshopapi.model.Computer;
 import lt.viko.eif.eshopapi.repository.ComputerRepository;
 import lt.viko.eif.eshopapi.service.ComputerService;
