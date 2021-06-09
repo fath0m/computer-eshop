@@ -6,7 +6,7 @@ package lt.viko.eif.eshopapi.dto.manufacturer;
 public class CreateManufacturerDTO {
 
     private String name;
-    private String counntry;
+    private String country;
     private String website;
 
     public String getName() {
@@ -17,12 +17,12 @@ public class CreateManufacturerDTO {
         this.name = name;
     }
 
-    public String getCounntry() {
-        return counntry;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCounntry(String counntry) {
-        this.counntry = counntry;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getWebsite() {
