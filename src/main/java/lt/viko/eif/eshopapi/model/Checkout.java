@@ -13,12 +13,12 @@ public class Checkout {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String Firstname;
-    private String Lastname;
-    private String DeliveryAddress;
-    private String DeliveryCity;
-    private String DeliveryCountry;
-    private boolean IsPaidOut;
+    private String firstName;
+    private String lastName;
+    private String deliveryAddress;
+    private String deliveryCity;
+    private String deliveryCountry;
+    private boolean isPaidOut;
 
     @Enumerated(EnumType.STRING)
     private Currency currency;
@@ -35,49 +35,61 @@ public class Checkout {
         this.id = id;
     }
 
-    public String getFirstname() { return Firstname; }
+    public String getFirstName() {
+        return firstName;
+    }
 
-    public void setFirstname(String firstname) { Firstname = firstname; }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    public String getLastname() { return Lastname; }
+    public String getLastName() {
+        return lastName;
+    }
 
-    public void setLastname(String lastname) { Lastname = lastname; }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getDeliveryAddress() {
-        return DeliveryAddress;
+        return deliveryAddress;
     }
 
     public void setDeliveryAddress(String deliveryAddress) {
-        DeliveryAddress = deliveryAddress;
+        this.deliveryAddress = deliveryAddress;
     }
 
     public String getDeliveryCity() {
-        return DeliveryCity;
+        return deliveryCity;
     }
 
     public void setDeliveryCity(String deliveryCity) {
-        DeliveryCity = deliveryCity;
+        this.deliveryCity = deliveryCity;
     }
 
     public String getDeliveryCountry() {
-        return DeliveryCountry;
+        return deliveryCountry;
     }
 
     public void setDeliveryCountry(String deliveryCountry) {
-        DeliveryCountry = deliveryCountry;
+        this.deliveryCountry = deliveryCountry;
     }
 
-    public boolean getisPaidOut() {
-        return IsPaidOut;
+    public boolean isPaidOut() {
+        return isPaidOut;
     }
 
     public void setPaidOut(boolean paidOut) {
-        IsPaidOut = paidOut;
+        isPaidOut = paidOut;
     }
 
-    public Currency getCurrency() { return currency; }
+    public Currency getCurrency() {
+        return currency;
+    }
 
-    public void setCurrency(Currency currency) { this.currency = currency; }
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
 
     public Cart getCart() {
         return cart;
@@ -86,4 +98,5 @@ public class Checkout {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
+    
 }
