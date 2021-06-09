@@ -1,6 +1,7 @@
 package lt.viko.eif.eshopapi.service;
 
 import lt.viko.eif.eshopapi.dto.storage.CreateStorageDTO;
+import lt.viko.eif.eshopapi.dto.storage.UpdateStorageDTO;
 import lt.viko.eif.eshopapi.model.Manufacturer;
 import lt.viko.eif.eshopapi.model.Storage;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
@@ -33,7 +34,13 @@ public class StorageService {
         return storageRepository.save(storage);
     }
 
-    
+    public Storage updateStorage(Long id, UpdateStorageDTO updateStorageDTO)
+    {
+        Storage storage = buildFromDTO(updateStorageDTO);
+        storage.setId(id);
+
+        return storageRepository.save(storage);
+    }
 
 
 }
