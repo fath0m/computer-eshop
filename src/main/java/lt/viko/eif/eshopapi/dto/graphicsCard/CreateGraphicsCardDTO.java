@@ -1,6 +1,6 @@
-package lt.viko.eif.eshopapi.dto.graphicCard;
+package lt.viko.eif.eshopapi.dto.graphicsCard;
 
-public class CreateGraphicCardDTO {
+public class CreateGraphicsCardDTO {
     private String name;
     private Long manufacturer_id;
 

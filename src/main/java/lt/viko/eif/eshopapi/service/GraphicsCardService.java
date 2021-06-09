@@ -1,25 +1,24 @@
 package lt.viko.eif.eshopapi.service;
 
-import lt.viko.eif.eshopapi.dto.graphicCard.CreateGraphicCardDTO;
-import lt.viko.eif.eshopapi.dto.graphicCard.UpdateGraphicsCardDTO;
+import lt.viko.eif.eshopapi.dto.graphicsCard.CreateGraphicsCardDTO;
+import lt.viko.eif.eshopapi.dto.graphicsCard.UpdateGraphicsCardDTO;
 import lt.viko.eif.eshopapi.model.GraphicsCard;
 import lt.viko.eif.eshopapi.model.Manufacturer;
 import lt.viko.eif.eshopapi.repository.GraphicsCardRepository;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
-import org.hibernate.graph.Graph;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class GraphicCardService {
+public class GraphicsCardService {
     @Autowired
     GraphicsCardRepository graphicsCardRepository;
     @Autowired
     ManufacturerRepository manufacturerRepository;
 
-    private GraphicsCard buildFromDTO(CreateGraphicCardDTO dto){
+    private GraphicsCard buildFromDTO(CreateGraphicsCardDTO dto){
         GraphicsCard graphicsCard = new GraphicsCard();
         graphicsCard.setName(dto.getName());
 
@@ -29,8 +28,8 @@ public class GraphicCardService {
         return graphicsCard;
     }
 
-    public GraphicsCard createGraphicsCard(CreateGraphicCardDTO createGraphicCardDTO){
-        GraphicsCard graphicsCard = buildFromDTO(createGraphicCardDTO);
+    public GraphicsCard createGraphicsCard(CreateGraphicsCardDTO createGraphicsCardDTO){
+        GraphicsCard graphicsCard = buildFromDTO(createGraphicsCardDTO);
         return graphicsCardRepository.save(graphicsCard);
     }
 
