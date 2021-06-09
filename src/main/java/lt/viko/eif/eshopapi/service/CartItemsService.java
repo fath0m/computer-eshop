@@ -41,9 +41,8 @@ public class CartItemsService {
         return cartItem;
     }
 
-    public CartItem createCartItem(Long id, CreateCartItemsDTO createCartItemsDTO){
+    public CartItem createCartItem(CreateCartItemsDTO createCartItemsDTO){
         CartItem cartItem = buildFromDTO(createCartItemsDTO);//provide createCartItemsDto to buildFromDto function
-        cartItem.setId(id);
 
         return cartItemRepository.save(cartItem);
     }
