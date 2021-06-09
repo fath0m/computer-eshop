@@ -83,8 +83,8 @@ public class ManufacturerController {
 
     /**
      * Post(add) new Graphic card, provide Graphic card object
-     * @param manufacturer
-     * @return
+     * @param newManufacturer
+     * @return ResponseEntity<EntityModel<Manufacturer>>
      */
     @PostMapping
     public ResponseEntity<EntityModel<Manufacturer>> addManufacturer(@RequestBody CreateManufacturerDTO newManufacturer){
