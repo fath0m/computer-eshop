@@ -1,7 +1,9 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.dto.motherboard.CreateMotherboardDTO;
 import lt.viko.eif.eshopapi.model.Motherboard;
 import lt.viko.eif.eshopapi.repository.MotherboardRepository;
+import lt.viko.eif.eshopapi.service.MotherboardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -21,6 +23,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 public class MotherboardController {
     @Autowired
     MotherboardRepository motherboardRepository;
+    @Autowired
+    MotherboardService motherboardService;
     /**
      * Get a list of Motherboards objects
      * @return
@@ -77,11 +81,24 @@ public class MotherboardController {
 
     /**
      * Post(add) new Motherboard, provide Motherboard object
-     * @param motherboard
-     * @return
+     * @param newMotherboard
+     * @return ResponseEntity<EntityModel<Motherboard>>
      */
     @PostMapping
-    public String addMotherboard(@RequestBody Motherboard motherboard){
-        return "Motherboard added";
+    public ResponseEntity<EntityModel<Motherboard>> addMotherboard(@RequestBody CreateMotherboardDTO newMotherboard){
+        /**
+         * calling motherboardService function createMontherboard and providing newMotherboard from request body
+         */
+        Motherboard motherboard = motherboardService.createMontherboard(newMotherboard);
+
+        if (motherboard == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        EntityModel<Motherboard> model = EntityModel.of(motherboard);
+        model.add(linkTo(methodOn(MotherboardController.class).getMotherboards()).withRel("get-all"));
+        model.add(linkTo(methodOn(MotherboardController.class).getMotherboardById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 }
