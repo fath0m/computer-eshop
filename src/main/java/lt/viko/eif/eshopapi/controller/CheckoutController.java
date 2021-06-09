@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.dto.checkout.CreateCheckoutDTO;
 import lt.viko.eif.eshopapi.model.Checkout;
 import lt.viko.eif.eshopapi.repository.CheckoutRepository;
+import lt.viko.eif.eshopapi.service.CheckoutService;
+import org.hibernate.annotations.Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -24,7 +27,8 @@ public class CheckoutController {
 
     @Autowired
     CheckoutRepository checkoutRepository;
-
+    @Autowired
+    CheckoutService checkoutService;
     /**
      * Get a list of Checkouts
      * @return
@@ -84,8 +88,17 @@ public class CheckoutController {
      * @return
      */
     @PostMapping
-    public String addCheckout(@RequestBody Checkout checkout){
-        return "Checkout added: ";
+    public ResponseEntity<EntityModel<Checkout>> addCheckout(@RequestBody CreateCheckoutDTO newCheckout){
+        Checkout checkout = checkoutService.createCheackout(newCheckout);
+
+        if(checkout == null)
+            return ResponseEntity.notFound().build();
+
+        EntityModel<Checkout> model = EntityModel.of(checkout);
+        model.add(linkTo(methodOn(CheckoutController.class).getCheckout()).withRel("get-all"));
+        model.add(linkTo(methodOn(CheckoutController.class).getCheckoutById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 
 }
