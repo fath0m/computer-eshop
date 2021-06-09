@@ -29,11 +29,11 @@ public class Payment {
 
     public void setCheckout(Checkout checkout) { this.checkout = checkout; }
 
-    public double getAmountPaid() { return amountPaid; }
+    public double getAmountPaid(double amountPaid) { return this.amountPaid; }
 
     public void setAmountPaid(double amountPaid) { this.amountPaid = amountPaid; }
 
-    public Date getPaid_at() { return paid_at; }
+    public Date getPaid_at(Date paid_at) { return this.paid_at; }
 
     public void setPaid_at(Date paid_at) { this.paid_at = paid_at; }
 }
