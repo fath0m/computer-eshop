@@ -84,7 +84,7 @@ public class CartItemController {
 
     /**
      * Post new Cart item, provide cart item object
-     * @param cartItem
+     * @param newCartItems
      * @return
      */
     @PostMapping
