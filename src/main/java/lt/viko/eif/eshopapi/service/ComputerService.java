@@ -2,6 +2,7 @@ package lt.viko.eif.eshopapi.service;
 
 import java.util.Optional;
 
+import lt.viko.eif.eshopapi.dto.computer.CreateComputerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
