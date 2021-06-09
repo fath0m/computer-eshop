@@ -19,9 +19,8 @@ public class CartService {
         return cart;
     }
 
-    public Cart createCart(Long id, CreateCartDTO createCartDTO){
+    public Cart createCart(CreateCartDTO createCartDTO){
         Cart cart = buildFromDTO(createCartDTO);
-        cart.setId(id);
 
         return cartRepository.save(cart);
     }
