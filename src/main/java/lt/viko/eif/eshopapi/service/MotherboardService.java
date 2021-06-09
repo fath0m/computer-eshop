@@ -1,6 +1,7 @@
 package lt.viko.eif.eshopapi.service;
 
 import lt.viko.eif.eshopapi.dto.motherboard.CreateMotherboardDTO;
+import lt.viko.eif.eshopapi.dto.motherboard.UpdateMotherboardDTO;
 import lt.viko.eif.eshopapi.model.Manufacturer;
 import lt.viko.eif.eshopapi.model.Motherboard;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
