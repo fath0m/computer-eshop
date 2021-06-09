@@ -1,8 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
 
+import lt.viko.eif.eshopapi.dto.manufacturer.CreateManufacturerDTO;
 import lt.viko.eif.eshopapi.model.Manufacturer;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
+import lt.viko.eif.eshopapi.service.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -20,8 +22,12 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RestController
 @RequestMapping(value = "/manufacturers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ManufacturerController {
+
     @Autowired
     ManufacturerRepository manufacturerRepository;
+
+    @Autowired
+    ManufacturerService manufacturerService;
     /**
      * Get a list of Manufacturer objects
      * @return
@@ -81,7 +87,16 @@ public class ManufacturerController {
      * @return
      */
     @PostMapping
-    public String addManufacturerCard(@RequestBody Manufacturer manufacturer){
-        return "Manufacturer added";
+    public ResponseEntity<EntityModel<Manufacturer>> addManufacturer(@RequestBody CreateManufacturerDTO newManufacturer){
+        Manufacturer manufacturer = manufacturerService.createManufacturer(newManufacturer);
+
+        if(manufacturer == null)
+            return ResponseEntity.notFound().build();
+
+        EntityModel<Manufacturer> model = EntityModel.of(manufacturer);
+        model.add(linkTo(methodOn(ManufacturerController.class).getManufacturers()).withRel("get-all"));
+        model.add(linkTo(methodOn(ManufacturerController.class).getManufacturerById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
     }
 }
