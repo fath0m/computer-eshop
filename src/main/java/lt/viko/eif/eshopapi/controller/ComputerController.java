@@ -93,7 +93,7 @@ public class ComputerController {
     	Computer computer = computerService.createComputer(newComputer);
     	
     	if (computer == null) {
-    		return ResponseEntity.badRequest().build();
+    		return ResponseEntity.notFound().build();
     	}
     	
     	EntityModel<Computer> model = EntityModel.of(computer);
