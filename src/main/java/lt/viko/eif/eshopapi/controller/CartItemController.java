@@ -1,9 +1,12 @@
 package lt.viko.eif.eshopapi.controller;
 
+import lt.viko.eif.eshopapi.dto.cart.CreateCartDTO;
+import lt.viko.eif.eshopapi.dto.cartItems.CreateCartItemsDTO;
 import lt.viko.eif.eshopapi.model.Cart;
 import lt.viko.eif.eshopapi.model.CartItem;
 import lt.viko.eif.eshopapi.model.Checkout;
 import lt.viko.eif.eshopapi.repository.CartItemRepository;
+import lt.viko.eif.eshopapi.service.CartItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -24,6 +27,8 @@ public class CartItemController {
     @Autowired
     CartItemRepository cartItemRepository;
 
+    @Autowired
+    CartItemsService cartItemsService;
     /**
      * Get cart items
      * @return
@@ -79,9 +84,21 @@ public class CartItemController {
 
     /**
      * Post new Cart item, provide cart item object
-     * @param cartItem
+     * @param newCartItems
      * @return
      */
     @PostMapping
-    public String addCartItem(@RequestBody CartItem cartItem){ return "Cart item added added: "; }
+    public ResponseEntity<EntityModel<CartItem>> addCartItem(@RequestBody CreateCartItemsDTO newCartItems) {
+        CartItem cartItem = cartItemsService.createCartItem(newCartItems);
+
+        if(cartItem == null){
+            return ResponseEntity.badRequest().build();
+        }
+        EntityModel<CartItem> model = EntityModel.of(cartItem);
+        model.add(linkTo(methodOn(CartItemController.class).getCartItems()).withRel("get-all"));
+        model.add(linkTo(methodOn(CartItemController.class).getCartItemsById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
+    }
+
 }
