@@ -1,6 +1,7 @@
 package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.cart.CreateCartDTO;
+import lt.viko.eif.eshopapi.dto.cart.UpdateCartDTO;
 import lt.viko.eif.eshopapi.model.Cart;
 import lt.viko.eif.eshopapi.repository.CartRepository;
 import lt.viko.eif.eshopapi.service.CartService;
@@ -97,5 +98,31 @@ public class CartController {
     model.add(linkTo(methodOn(CartController.class).getCartById(12L)).withRel("get-one-by-id"));
 
     return ResponseEntity.ok(model);
+    }
+
+    /**
+     *
+     * @param newCart
+     * @param id
+     * @return
+     */
+    @PutMapping(value="/{id}")
+    public ResponseEntity<EntityModel<Cart>> updateCartById(@RequestBody UpdateCartDTO newCart,@PathVariable(value="id")long id){
+
+        Optional<Cart> cart = cartRepository.findById(id);
+
+        if(cart.isEmpty())
+            return ResponseEntity.notFound().build();
+
+        Cart updateCart = cartService.updateCart(id, newCart);
+
+        EntityModel<Cart> model = EntityModel.of(updateCart);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(CartController.class).getCartById(updateCart.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(CartController.class).getCarts()).withRel("get-all"));
+
+        return ResponseEntity.ok(model);
+
     }
 }
