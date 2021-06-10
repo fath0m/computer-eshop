@@ -84,8 +84,8 @@ public class CheckoutController {
 
     /**
      * Post new Checkout, provide Checkout object
-     * @param newCheckout
-     * @return ResponseEntity<EntityModel<Checkout>>
+     * @param
+     * @return
      */
     @PostMapping
     public ResponseEntity<EntityModel<Checkout>> addCheckout(@RequestBody CreateCheckoutDTO newCheckout){
