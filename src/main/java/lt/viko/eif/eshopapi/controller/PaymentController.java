@@ -103,6 +103,12 @@ public class PaymentController {
         return ResponseEntity.ok(model);
     }
 
+    /**
+     * PUT request to route /payments/{id}. Have to provide UpdatePaymentDTO
+     * @param id
+     * @param newPayment
+     * @return ResponseEntity<EntityModel<Payment>>
+     */
     @PutMapping(value = "/{id}")
     public ResponseEntity<EntityModel<Payment>> updatePaymentById(@PathVariable(value = "id") long id, @RequestBody UpdatePaymentDTO newPayment) {
         Optional<Payment> payment = paymentRepository.findById(id);

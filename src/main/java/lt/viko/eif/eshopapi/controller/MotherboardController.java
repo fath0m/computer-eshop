@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.motherboard.CreateMotherboardDTO;
+import lt.viko.eif.eshopapi.dto.motherboard.UpdateMotherboardDTO;
+import lt.viko.eif.eshopapi.dto.payment.UpdatePaymentDTO;
 import lt.viko.eif.eshopapi.model.Motherboard;
+import lt.viko.eif.eshopapi.model.Payment;
 import lt.viko.eif.eshopapi.repository.MotherboardRepository;
 import lt.viko.eif.eshopapi.service.MotherboardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,6 +101,31 @@ public class MotherboardController {
         EntityModel<Motherboard> model = EntityModel.of(motherboard);
         model.add(linkTo(methodOn(MotherboardController.class).getMotherboards()).withRel("get-all"));
         model.add(linkTo(methodOn(MotherboardController.class).getMotherboardById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
+    }
+
+    /**
+     * PUT request to route /motherboards/{id}. Have to provide UpdateMotherboardDTO
+     * @param id
+     * @param newMotherboard
+     * @return ResponseEntity<EntityModel<Motherboard>>
+     */
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<EntityModel<Motherboard>> updateMotherboardById(@PathVariable(value = "id") long id, @RequestBody UpdateMotherboardDTO newMotherboard) {
+        Optional<Motherboard> motherboard = motherboardRepository.findById(id);
+
+        if (motherboard.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Motherboard updatedMotherboard = motherboardService.update(id, newMotherboard);
+
+        EntityModel<Motherboard> model = EntityModel.of(updatedMotherboard);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(MotherboardController.class).getMotherboardById(updatedMotherboard.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(MotherboardController.class).getMotherboards()).withRel("get-all"));
 
         return ResponseEntity.ok(model);
     }
