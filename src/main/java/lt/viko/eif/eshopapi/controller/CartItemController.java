@@ -2,9 +2,12 @@ package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.cart.CreateCartDTO;
 import lt.viko.eif.eshopapi.dto.cartItems.CreateCartItemsDTO;
+import lt.viko.eif.eshopapi.dto.cartItems.UpdateCartItemsDTO;
+import lt.viko.eif.eshopapi.dto.storage.UpdateStorageDTO;
 import lt.viko.eif.eshopapi.model.Cart;
 import lt.viko.eif.eshopapi.model.CartItem;
 import lt.viko.eif.eshopapi.model.Checkout;
+import lt.viko.eif.eshopapi.model.Storage;
 import lt.viko.eif.eshopapi.repository.CartItemRepository;
 import lt.viko.eif.eshopapi.service.CartItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,6 +100,25 @@ public class CartItemController {
         EntityModel<CartItem> model = EntityModel.of(cartItem);
         model.add(linkTo(methodOn(CartItemController.class).getCartItems()).withRel("get-all"));
         model.add(linkTo(methodOn(CartItemController.class).getCartItemsById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
+    }
+
+    @PutMapping(value="/{id}")
+    public ResponseEntity<EntityModel<CartItem>> updatecartItemById(@RequestBody UpdateCartItemsDTO newCartItem, @PathVariable(value= "id") long id){
+
+        Optional<CartItem> cartItem = cartItemRepository.findById(id);
+
+        if(cartItem.isEmpty())
+            return ResponseEntity.notFound().build();
+
+        CartItem updateCartItem = cartItemsService.updateCartItem(id, newCartItem);
+
+        EntityModel<CartItem> model = EntityModel.of(updateCartItem);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(CartItemController.class).getCartItemsById(updateCartItem.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(CartItemController.class).getCartItems()).withRel("get-all"));
 
         return ResponseEntity.ok(model);
     }
