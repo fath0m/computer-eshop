@@ -1,6 +1,7 @@
 package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.processor.CreateProcessorDTO;
+import lt.viko.eif.eshopapi.dto.processor.UpdateProcessorDTO;
 import lt.viko.eif.eshopapi.model.Processor;
 import lt.viko.eif.eshopapi.repository.ProcessorRepository;
 import lt.viko.eif.eshopapi.service.ProcessorService;
@@ -101,5 +102,9 @@ public class ProcessorController {
 
         return ResponseEntity.ok(model);
     }
+
+
+
+
 
 }
