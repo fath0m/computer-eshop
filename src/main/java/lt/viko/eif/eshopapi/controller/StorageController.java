@@ -1,6 +1,7 @@
 package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.storage.CreateStorageDTO;
+import lt.viko.eif.eshopapi.dto.storage.UpdateStorageDTO;
 import lt.viko.eif.eshopapi.model.Storage;
 import lt.viko.eif.eshopapi.repository.StorageRepository;
 import lt.viko.eif.eshopapi.service.StorageService;
@@ -100,6 +101,25 @@ public class StorageController {
         EntityModel<Storage> model = EntityModel.of(storage);
         model.add(linkTo(methodOn(StorageController.class).getStorages()).withRel("get-all"));
         model.add(linkTo(methodOn(StorageController.class).getStorageById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
+    }
+
+    @PutMapping(value="/{id}")
+    public ResponseEntity<EntityModel<Storage>> updateStorageById(@RequestBody UpdateStorageDTO newStorage, @PathVariable(value= "id") long id){
+
+        Optional<Storage> storage = storageRepository.findById(id);
+
+        if(storage.isEmpty())
+            return ResponseEntity.notFound().build();
+
+        Storage updateStorage = storageService.updateStorage(id, newStorage);
+
+        EntityModel<Storage> model = EntityModel.of(updateStorage);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(StorageController.class).getStorageById(updateStorage.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(StorageController.class).getStorages()).withRel("get-all"));
 
         return ResponseEntity.ok(model);
     }
