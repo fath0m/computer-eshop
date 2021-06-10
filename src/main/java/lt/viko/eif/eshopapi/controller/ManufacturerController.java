@@ -2,7 +2,10 @@ package lt.viko.eif.eshopapi.controller;
 
 
 import lt.viko.eif.eshopapi.dto.manufacturer.CreateManufacturerDTO;
+import lt.viko.eif.eshopapi.dto.manufacturer.UpdateManufacturerDTO;
+import lt.viko.eif.eshopapi.dto.memory.UpdateMemoryDTO;
 import lt.viko.eif.eshopapi.model.Manufacturer;
+import lt.viko.eif.eshopapi.model.Memory;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
 import lt.viko.eif.eshopapi.service.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +99,30 @@ public class ManufacturerController {
         EntityModel<Manufacturer> model = EntityModel.of(manufacturer);
         model.add(linkTo(methodOn(ManufacturerController.class).getManufacturers()).withRel("get-all"));
         model.add(linkTo(methodOn(ManufacturerController.class).getManufacturerById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
+    }
+
+    /**
+     * PUT request to route /manufacturers/{id}. Have to provide UpdateManufacturerDTO
+     * @param id
+     * @param newManufacturer
+     * @return ResponseEntity<EntityModel<Manufacturer>>
+     */
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<EntityModel<Manufacturer>> updateManufacturerById(@PathVariable(value = "id") long id, @RequestBody UpdateManufacturerDTO newManufacturer) {
+        Optional<Manufacturer> manufacturer = manufacturerRepository.findById(id);
+        if (manufacturer.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Manufacturer updatedManufacturer = manufacturerService.updateManufacturer(id, newManufacturer);
+
+        EntityModel<Manufacturer> model = EntityModel.of(updatedManufacturer);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(ManufacturerController.class).getManufacturerById(updatedManufacturer.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(ManufacturerController.class).getManufacturers()).withRel("get-all"));
 
         return ResponseEntity.ok(model);
     }
