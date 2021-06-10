@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.memory.CreateMemoryDTO;
+import lt.viko.eif.eshopapi.dto.memory.UpdateMemoryDTO;
+import lt.viko.eif.eshopapi.dto.motherboard.UpdateMotherboardDTO;
 import lt.viko.eif.eshopapi.model.Memory;
+import lt.viko.eif.eshopapi.model.Motherboard;
 import lt.viko.eif.eshopapi.repository.MemoryRepository;
 import lt.viko.eif.eshopapi.service.MemoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,6 +100,30 @@ public class MemoryController {
         EntityModel<Memory> model = EntityModel.of(memory);
         model.add(linkTo(methodOn(MemoryController.class).getMemories()).withRel("get-all"));
         model.add(linkTo(methodOn(MemoryController.class).getMemoryById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
+    }
+
+    /**
+     * PUT request to route /memories/{id}. Have to provide UpdateMemoryDTO
+     * @param id
+     * @param newMemory
+     * @return ResponseEntity<EntityModel<Memory>>
+     */
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<EntityModel<Memory>> updateMemoryById(@PathVariable(value = "id") long id, @RequestBody UpdateMemoryDTO newMemory) {
+        Optional<Memory> memory = memoryRepository.findById(id);
+        if (memory.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Memory updatedMemory = memoryService.updateMemoryById(id, newMemory);
+
+        EntityModel<Memory> model = EntityModel.of(updatedMemory);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(MemoryController.class).getMemoryById(updatedMemory.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(MemoryController.class).getMemories()).withRel("get-all"));
 
         return ResponseEntity.ok(model);
     }
