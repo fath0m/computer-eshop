@@ -83,7 +83,7 @@ public class CartController {
     /**
      * Post new Cart , provide cart  object
      * @param newCart
-     * @return
+     * @return ResponseEntity<EntityModel<Cart>>
      */
     @PostMapping
     public ResponseEntity<EntityModel<Cart>> addCart(@RequestBody CreateCartDTO newCart){
@@ -101,10 +101,10 @@ public class CartController {
     }
 
     /**
-     *
+     * PUT request to route /carts/{id}. Have to provide UpdateCartDTO
      * @param newCart
      * @param id
-     * @return
+     * @return ResponseEntity<EntityModel<Cart>>
      */
     @PutMapping(value="/{id}")
     public ResponseEntity<EntityModel<Cart>> updateCartById(@RequestBody UpdateCartDTO newCart,@PathVariable(value="id")long id){

@@ -71,7 +71,7 @@ public class CartItemController {
     /**
      * Delete cart item with given id
      * @param id
-     * @return
+     * @return ResponseEntity
      */
     @DeleteMapping("/{id}")
     public ResponseEntity deleteCartItemById(@PathVariable long id){
@@ -88,7 +88,7 @@ public class CartItemController {
     /**
      * Post new Cart item, provide cart item object
      * @param newCartItems
-     * @return
+     * @return ResponseEntity<EntityModel<CartItem>>
      */
     @PostMapping
     public ResponseEntity<EntityModel<CartItem>> addCartItem(@RequestBody CreateCartItemsDTO newCartItems) {
@@ -104,6 +104,12 @@ public class CartItemController {
         return ResponseEntity.ok(model);
     }
 
+    /**
+     * PUT request to route /cartItems/{id}. Have to provide UpdateCartItemsDTO
+     * @param newCartItem
+     * @param id
+     * @return ResponseEntity<EntityModel<CartItem>>
+     */
     @PutMapping(value="/{id}")
     public ResponseEntity<EntityModel<CartItem>> updatecartItemById(@RequestBody UpdateCartItemsDTO newCartItem, @PathVariable(value= "id") long id){
 
