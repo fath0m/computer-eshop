@@ -92,7 +92,7 @@ public class CartItemController {
         CartItem cartItem = cartItemsService.createCartItem(newCartItems);
 
         if(cartItem == null){
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
         EntityModel<CartItem> model = EntityModel.of(cartItem);
         model.add(linkTo(methodOn(CartItemController.class).getCartItems()).withRel("get-all"));

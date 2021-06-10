@@ -1,9 +1,9 @@
 package lt.viko.eif.eshopapi.controller;
 
-import lt.viko.eif.eshopapi.dto.graphicCard.CreateGraphicCardDTO;
+import lt.viko.eif.eshopapi.dto.graphicsCard.CreateGraphicsCardDTO;
 import lt.viko.eif.eshopapi.model.GraphicsCard;
 import lt.viko.eif.eshopapi.repository.GraphicsCardRepository;
-import lt.viko.eif.eshopapi.service.GraphicCardService;
+import lt.viko.eif.eshopapi.service.GraphicsCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -20,22 +20,22 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping(value = "/graphicsCards", produces = MediaType.APPLICATION_JSON_VALUE)
-public class GraphicCardController {
+public class GraphicsCardController {
     @Autowired
     GraphicsCardRepository gpuRepository;
     @Autowired
-    GraphicCardService graphicCardService;
+    GraphicsCardService graphicsCardService;
     /**
      * Get a list of Graphic cards
      * @return ResponseEntity<CollectionModel<GraphicsCard>>
      */
     @GetMapping
-    public ResponseEntity<CollectionModel<GraphicsCard>> getGraphicCards() {
+    public ResponseEntity<CollectionModel<GraphicsCard>> getGraphicsCards() {
         CollectionModel<GraphicsCard> model = CollectionModel.of(gpuRepository.findAll());
 
         final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
         model.add(Link.of(uriString, "self"));
-        model.add(linkTo(methodOn(GraphicCardController.class).getGraphicCardById(12L)).withRel("get-one-by-id"));
+        model.add(linkTo(methodOn(GraphicsCardController.class).getGraphicsCardById(12L)).withRel("get-one-by-id"));
 
         return ResponseEntity.ok(model);
     }
@@ -46,7 +46,7 @@ public class GraphicCardController {
      * @return EntityModel<GraphicsCard>
      */
     @GetMapping("/{id}")
-    public ResponseEntity<EntityModel<GraphicsCard>> getGraphicCardById(@PathVariable(value = "id") long id){
+    public ResponseEntity<EntityModel<GraphicsCard>> getGraphicsCardById(@PathVariable(value = "id") long id){
         Optional<GraphicsCard> gpu = gpuRepository.findById(id);
 
         if(gpu.isEmpty())
@@ -56,7 +56,7 @@ public class GraphicCardController {
         EntityModel<GraphicsCard> model = EntityModel.of(gpu.get());
         final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
         model.add(Link.of(uriString, "self"));
-        model.add(linkTo(methodOn(GraphicCardController.class).getGraphicCards()).withRel("get-all"));
+        model.add(linkTo(methodOn(GraphicsCardController.class).getGraphicsCards()).withRel("get-all"));
 
         return ResponseEntity.ok(model);
     }
@@ -67,7 +67,7 @@ public class GraphicCardController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteGraphicCardById(@PathVariable long id){
+    public ResponseEntity deleteGraphicsCardById(@PathVariable long id){
         Optional<GraphicsCard> gpu = gpuRepository.findById(id);
 
         if (gpu.isEmpty()) {
@@ -83,18 +83,18 @@ public class GraphicCardController {
      * @return ResponseEntity<EntityModel<GraphicsCard>>
      */
     @PostMapping
-    public ResponseEntity<EntityModel<GraphicsCard>> addGraphicCard(@RequestBody CreateGraphicCardDTO newGraphicCard){
+    public ResponseEntity<EntityModel<GraphicsCard>> addGraphicsCard(@RequestBody CreateGraphicsCardDTO newGraphicCard){
         /**
          * calling graphicCardService function createGraphicsCard and providing newGraphicCard from request body
          */
-        GraphicsCard graphicsCard = graphicCardService.createGraphicsCard(newGraphicCard);
+        GraphicsCard graphicsCard = graphicsCardService.createGraphicsCard(newGraphicCard);
         if (graphicsCard == null) {
             return ResponseEntity.notFound().build();
         }
 
         EntityModel<GraphicsCard> model = EntityModel.of(graphicsCard);
-        model.add(linkTo(methodOn(GraphicCardController.class).getGraphicCards()).withRel("get-all"));
-        model.add(linkTo(methodOn(GraphicCardController.class).getGraphicCardById(12L)).withRel("get-one-by-id"));
+        model.add(linkTo(methodOn(GraphicsCardController.class).getGraphicsCards()).withRel("get-all"));
+        model.add(linkTo(methodOn(GraphicsCardController.class).getGraphicsCardById(12L)).withRel("get-one-by-id"));
 
         return ResponseEntity.ok(model);
     }
