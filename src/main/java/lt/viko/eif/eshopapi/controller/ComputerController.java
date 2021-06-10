@@ -110,7 +110,7 @@ public class ComputerController {
      * PUT request to route /computers/{id}. Have to provide UpdateComputerDTO
      * @param id
      * @param newComputer
-     * @return
+     * @return ResponseEntity<EntityModel<Computer>>
      */
     @PutMapping(value = "/{id}")
     public ResponseEntity<EntityModel<Computer>> updateComputerById(@PathVariable(value = "id") long id, @RequestBody UpdateComputerDTO newComputer) {

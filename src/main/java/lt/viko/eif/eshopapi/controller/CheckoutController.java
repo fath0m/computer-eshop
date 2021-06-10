@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.checkout.CreateCheckoutDTO;
+import lt.viko.eif.eshopapi.dto.checkout.UpdateCheckoutDTO;
+import lt.viko.eif.eshopapi.dto.computer.UpdateComputerDTO;
 import lt.viko.eif.eshopapi.model.Checkout;
+import lt.viko.eif.eshopapi.model.Computer;
 import lt.viko.eif.eshopapi.repository.CheckoutRepository;
 import lt.viko.eif.eshopapi.service.CheckoutService;
 import org.hibernate.annotations.Check;
@@ -97,6 +100,29 @@ public class CheckoutController {
         EntityModel<Checkout> model = EntityModel.of(checkout);
         model.add(linkTo(methodOn(CheckoutController.class).getCheckout()).withRel("get-all"));
         model.add(linkTo(methodOn(CheckoutController.class).getCheckoutById(12L)).withRel("get-one-by-id"));
+
+        return ResponseEntity.ok(model);
+    }
+
+    /**
+     * PUT request to route /checkouts/{id}. Have to provide UpdateCheckoutDTO
+     * @param id
+     * @param newCheckout
+     * @return ResponseEntity<EntityModel<Checkout>>
+     */
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<EntityModel<Checkout>> updateCheckoutById(@PathVariable(value = "id") long id, @RequestBody UpdateCheckoutDTO newCheckout) {
+        Optional<Checkout> checkout = checkoutRepository.findById(id);
+        if (checkout.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        Checkout updatedCheckout = checkoutService.updateCheackoutById(id, newCheckout);
+
+        EntityModel<Checkout> model = EntityModel.of(updatedCheckout);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(CheckoutController.class).getCheckoutById(updatedCheckout.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(CheckoutController.class).getCheckout()).withRel("get-all"));
 
         return ResponseEntity.ok(model);
     }
