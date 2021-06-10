@@ -22,10 +22,10 @@ public class PaymentService {
 
     private Payment buildFromDTO(CreatePaymentDTO dto){
         Payment payment = new Payment();
-        payment.getAmountPaid(dto.getAmountPaid());
-        payment.getPaid_at(dto.getPaid_at());
+        payment.setAmountPaid(dto.getAmountPaid());
+        payment.setPaidAt(dto.getPaidAt());
 
-        Optional<Checkout> checkout = checkoutRepository.findById(dto.getCheckOut_id());
+        Optional<Checkout> checkout = checkoutRepository.findById(dto.getCheckOutId());
 
         payment.setCheckout(checkout.get());
 

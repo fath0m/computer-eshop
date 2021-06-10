@@ -19,21 +19,37 @@ public class Payment {
     private Checkout checkout;
 
     private double amountPaid;
-    private Date paid_at;
+    private Date paidAt;
 
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Checkout getCheckout() { return checkout; }
+    public Checkout getCheckout() {
+        return checkout;
+    }
 
-    public void setCheckout(Checkout checkout) { this.checkout = checkout; }
+    public void setCheckout(Checkout checkout) {
+        this.checkout = checkout;
+    }
 
-    public double getAmountPaid(double amountPaid) { return this.amountPaid; }
+    public double getAmountPaid() {
+        return amountPaid;
+    }
 
-    public void setAmountPaid(double amountPaid) { this.amountPaid = amountPaid; }
+    public void setAmountPaid(double amountPaid) {
+        this.amountPaid = amountPaid;
+    }
 
-    public Date getPaid_at(Date paid_at) { return this.paid_at; }
+    public Date getPaidAt() {
+        return paidAt;
+    }
 
-    public void setPaid_at(Date paid_at) { this.paid_at = paid_at; }
+    public void setPaidAt(Date paidAt) {
+        this.paidAt = paidAt;
+    }
 }

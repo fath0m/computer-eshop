@@ -4,19 +4,32 @@ import java.sql.Date;
 
 public class CreatePaymentDTO {
 
-    private Long checkOut_id;
+    private Long checkOutId;
     private double amountPaid;
-    private Date paid_at;
+    private Date paidAt;
 
-    public Long getCheckOut_id() { return checkOut_id; }
+    public Long getCheckOutId() {
+        return checkOutId;
+    }
 
-    public void setCheckOut_id(Long checkOut_id) { this.checkOut_id = checkOut_id; }
+    public void setCheckOutId(Long checkOutId) {
+        this.checkOutId = checkOutId;
+    }
 
-    public double getAmountPaid() { return amountPaid; }
+    public double getAmountPaid() {
+        return amountPaid;
+    }
 
-    public void setAmountPaid(double amountPaid) { this.amountPaid = amountPaid; }
+    public void setAmountPaid(double amountPaid) {
+        this.amountPaid = amountPaid;
+    }
 
-    public Date getPaid_at() { return paid_at; }
+    public Date getPaidAt() {
+        return paidAt;
+    }
 
-    public void setPaid_at(Date paid_at) { this.paid_at = paid_at; }
+    public void setPaidAt(Date paidAt) {
+        this.paidAt = paidAt;
+    }
+
 }
