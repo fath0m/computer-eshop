@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.payment.CreatePaymentDTO;
+import lt.viko.eif.eshopapi.dto.payment.UpdatePaymentDTO;
+import lt.viko.eif.eshopapi.dto.processor.UpdateProcessorDTO;
 import lt.viko.eif.eshopapi.model.Payment;
+import lt.viko.eif.eshopapi.model.Processor;
 import lt.viko.eif.eshopapi.repository.PaymentRepository;
 import lt.viko.eif.eshopapi.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,4 +102,24 @@ public class PaymentController {
 
         return ResponseEntity.ok(model);
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<EntityModel<Payment>> updatePaymentById(@PathVariable(value = "id") long id, @RequestBody UpdatePaymentDTO newPayment) {
+        Optional<Payment> payment = paymentRepository.findById(id);
+
+        if (payment.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Payment updatedPayment = paymentService.updatePaymentId(id, newPayment);
+
+        EntityModel<Payment> model = EntityModel.of(updatedPayment);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(PaymentController.class).getPaymentById(updatedPayment.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(PaymentController.class).getPayments()).withRel("get-all"));
+
+        return ResponseEntity.ok(model);
+    }
+
 }

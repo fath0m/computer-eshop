@@ -103,6 +103,12 @@ public class ProcessorController {
         return ResponseEntity.ok(model);
     }
 
+    /**
+     * PUT request to route /processors/{id}. Have to provide UpdateProcessorDTO
+     * @param id
+     * @param newProcessor
+     * @return ResponseEntity<EntityModel<Processor>>
+     */
     @PutMapping(value = "/{id}")
     public ResponseEntity<EntityModel<Processor>> updateProcessorById(@PathVariable(value = "id") long id, @RequestBody UpdateProcessorDTO newProcessor) {
         Optional<Processor> processor = processorRepository.findById(id);

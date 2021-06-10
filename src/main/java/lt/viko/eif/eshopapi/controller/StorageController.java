@@ -105,6 +105,12 @@ public class StorageController {
         return ResponseEntity.ok(model);
     }
 
+    /**
+     * PUT request to route /storages/{id}. Have to provide UpdateStorageDTO
+     * @param newStorage
+     * @param id
+     * @return ResponseEntity<EntityModel<Storage>>
+     */
     @PutMapping(value="/{id}")
     public ResponseEntity<EntityModel<Storage>> updateStorageById(@RequestBody UpdateStorageDTO newStorage, @PathVariable(value= "id") long id){
 
