@@ -1,9 +1,16 @@
 package lt.viko.eif.eshopapi.dto.computer;
 
+import lt.viko.eif.eshopapi.constant.Currency;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 public class CreateComputerDTO {
 
 	private String name;
     private double price;
+	@Enumerated(EnumType.STRING)
+    private Currency currency;
     private int stockQuantity;
     private Long manufacturerId;
     private Long processorId;
@@ -26,6 +33,14 @@ public class CreateComputerDTO {
 	
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
 	}
 
 	public int getStockQuantity() {

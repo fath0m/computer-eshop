@@ -50,6 +50,7 @@ public class ComputerService {
 		Computer computer = new Computer();
 		computer.setName(dto.getName());
 		computer.setPrice(dto.getPrice());
+		computer.setCurrency(dto.getCurrency());
 		computer.setStockQuantity(dto.getStockQuantity());
 		
 		// Relationships
