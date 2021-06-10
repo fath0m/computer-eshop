@@ -103,6 +103,25 @@ public class ProcessorController {
         return ResponseEntity.ok(model);
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<EntityModel<Processor>> updateProcessorById(@PathVariable(value = "id") long id, @RequestBody UpdateProcessorDTO newProcessor) {
+        Optional<Processor> processor = processorRepository.findById(id);
+
+        if (processor.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Processor updatedProcessor = processorService.updateProcessor(id, newProcessor);
+
+        EntityModel<Processor> model = EntityModel.of(updatedProcessor);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(ProcessorController.class).getProcessorById(updatedProcessor.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(ProcessorController.class).getProcessors()).withRel("get-all"));
+
+        return ResponseEntity.ok(model);
+    }
+
 
 
 
