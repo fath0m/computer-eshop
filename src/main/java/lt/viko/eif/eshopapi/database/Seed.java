@@ -3,6 +3,7 @@ package lt.viko.eif.eshopapi.database;
 import lt.viko.eif.eshopapi.constant.Currency;
 import lt.viko.eif.eshopapi.constant.FrequencyUnit;
 import lt.viko.eif.eshopapi.constant.SizeUnit;
+import lt.viko.eif.eshopapi.constant.StorageType;
 import lt.viko.eif.eshopapi.model.*;
 import lt.viko.eif.eshopapi.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -161,12 +162,14 @@ public class Seed {
         storage1.setName("Baracuda 7300 RPM");
         storage1.setAmount(1024);
         storage1.setAmountUnit(SizeUnit.GIGABYTE);
+        storage1.setStorageType(StorageType.HDD);
         storage1.setManufacturer(manufacturer7);
 
         var storage2 = new Storage();
         storage2.setName("EVO 880");
         storage2.setAmount(256);
         storage2.setAmountUnit(SizeUnit.GIGABYTE);
+        storage2.setStorageType(StorageType.SATA_SSD);
         storage2.setManufacturer(manufacturer7);
 
         storageRepository.save(storage1);
