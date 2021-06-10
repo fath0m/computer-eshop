@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.computer.CreateComputerDTO;
+import lt.viko.eif.eshopapi.dto.computer.UpdateComputerDTO;
+import lt.viko.eif.eshopapi.dto.graphicsCard.UpdateGraphicsCardDTO;
 import lt.viko.eif.eshopapi.model.Computer;
+import lt.viko.eif.eshopapi.model.GraphicsCard;
 import lt.viko.eif.eshopapi.repository.ComputerRepository;
 import lt.viko.eif.eshopapi.service.ComputerService;
 
@@ -101,6 +104,29 @@ public class ComputerController {
     	model.add(linkTo(methodOn(ComputerController.class).getComputerById(12L)).withRel("get-one-by-id"));
     	
     	return ResponseEntity.ok(model);
+    }
+
+    /**
+     * PUT request to route /computers/{id}. Have to provide UpdateComputerDTO
+     * @param id
+     * @param newComputer
+     * @return
+     */
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<EntityModel<Computer>> updateComputerById(@PathVariable(value = "id") long id, @RequestBody UpdateComputerDTO newComputer) {
+        Optional<Computer> computer = computerRepository.findById(id);
+        if (computer.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        Computer updatedComputer = computerService.updateComputerById(id, newComputer);
+
+        EntityModel<Computer> model = EntityModel.of(updatedComputer);
+        final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        model.add(Link.of(uriString, "self"));
+        model.add(linkTo(methodOn(ComputerController.class).getComputerById(updatedComputer.getId())).withRel("get-this-by-id"));
+        model.add(linkTo(methodOn(ComputerController.class).getComputers()).withRel("get-all"));
+
+        return ResponseEntity.ok(model);
     }
 
 }
