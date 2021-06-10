@@ -4,13 +4,14 @@ public class CreateComputerDTO {
 
 	private String name;
     private double price;
+    private int stockQuantity;
     private Long manufacturerId;
     private Long processorId;
     private Long graphicsCardId;
     private Long memoryId;
     private Long storageId;
     private Long motherboardId;
-    
+
 	public String getName() {
 		return name;
 	}
@@ -25,6 +26,14 @@ public class CreateComputerDTO {
 	
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public int getStockQuantity() {
+		return stockQuantity;
+	}
+
+	public void setStockQuantity(int stockQuantity) {
+		this.stockQuantity = stockQuantity;
 	}
 	
 	public Long getManufacturerId() {

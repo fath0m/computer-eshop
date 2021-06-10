@@ -16,6 +16,7 @@ public class Computer {
     private double price;
     @Enumerated(EnumType.STRING)
     private Currency currency;
+    private int stockQuantity;
 
     @JsonManagedReference
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
@@ -122,4 +123,13 @@ public class Computer {
     public Motherboard getMotherboard() { return motherboard; }
 
     public void setMotherboard(Motherboard motherboard) { this.motherboard = motherboard; }
+
+    public int getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
+    }
+
 }
