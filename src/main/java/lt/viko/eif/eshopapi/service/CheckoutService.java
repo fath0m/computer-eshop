@@ -22,12 +22,12 @@ public class CheckoutService {
 
     private Checkout buildFromDTO(CreateCheckoutDTO dto){
         Checkout checkout = new Checkout();
-        checkout.getFirstName();
-        checkout.getLastName();
-        checkout.getDeliveryAddress();
-        checkout.getDeliveryCity();
-        checkout.getDeliveryCountry();
-        checkout.isPaidOut();
+        checkout.setFirstName(dto.getFirstName());
+        checkout.setLastName(dto.getLastName());
+        checkout.setDeliveryAddress(dto.getDeliveryAddress());
+        checkout.setDeliveryCity(dto.getDeliveryCity());
+        checkout.setDeliveryCountry(dto.getDeliveryCountry());
+        checkout.setPaidOut(dto.isPaidOut());
 
         Optional<Cart> cart = cartRepository.findById(dto.getCardId());
         checkout.setCart(cart.get());
