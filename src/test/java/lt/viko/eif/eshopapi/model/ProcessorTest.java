@@ -20,24 +20,10 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class ProcessorTest {
     
-    public ProcessorTest() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
+    Processor instance = new Processor();
     
     @AfterEach
-    public void tearDown() {
-    }
+    public void tearDown() { instance = new Processor(); }
 
     /**
      * Test of getId method, of class Processor.
@@ -45,12 +31,10 @@ public class ProcessorTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Processor instance = new Processor();
-        Long expResult = null;
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
         Long result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,11 +43,10 @@ public class ProcessorTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        Long id = null;
-        Processor instance = new Processor();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
+        Long result = instance.getId();
+        assertEquals(expResult,result);
     }
 
     /**
@@ -72,12 +55,10 @@ public class ProcessorTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        Processor instance = new Processor();
-        String expResult = "";
+        String expResult = "TESTPROC";
+        instance.setName("TESTPROC");
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -86,11 +67,10 @@ public class ProcessorTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        Processor instance = new Processor();
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "TESTPROC";
+        instance.setName("TESTPROC");
+        String result = instance.getName();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -99,12 +79,10 @@ public class ProcessorTest {
     @Test
     public void testGetCoreAmount() {
         System.out.println("getCoreAmount");
-        Processor instance = new Processor();
-        int expResult = 0;
+        int expResult = 8;
+        instance.setCoreAmount(8);
         int result = instance.getCoreAmount();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -113,11 +91,10 @@ public class ProcessorTest {
     @Test
     public void testSetCoreAmount() {
         System.out.println("setCoreAmount");
-        int coreAmount = 0;
-        Processor instance = new Processor();
-        instance.setCoreAmount(coreAmount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int expResult = 8;
+        instance.setCoreAmount(8);
+        int result = instance.getCoreAmount();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -126,12 +103,10 @@ public class ProcessorTest {
     @Test
     public void testGetThreadAmount() {
         System.out.println("getThreadAmount");
-        Processor instance = new Processor();
-        int expResult = 0;
+        int expResult = 5;
+        instance.setThreadAmount(5);
         int result = instance.getThreadAmount();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -140,11 +115,10 @@ public class ProcessorTest {
     @Test
     public void testSetThreadAmount() {
         System.out.println("setThreadAmount");
-        int threadAmount = 0;
-        Processor instance = new Processor();
-        instance.setThreadAmount(threadAmount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int expResult = 5;
+        instance.setThreadAmount(5);
+        int result = instance.getThreadAmount();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -153,12 +127,10 @@ public class ProcessorTest {
     @Test
     public void testGetFrequency() {
         System.out.println("getFrequency");
-        Processor instance = new Processor();
-        double expResult = 0.0;
+        double expResult = 2.5;
+        instance.setFrequency(2.5);
         double result = instance.getFrequency();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -167,11 +139,10 @@ public class ProcessorTest {
     @Test
     public void testSetFrequency() {
         System.out.println("setFrequency");
-        double frequency = 0.0;
-        Processor instance = new Processor();
-        instance.setFrequency(frequency);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        double expResult = 2.5;
+        instance.setFrequency(2.5);
+        double result = instance.getFrequency();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -180,12 +151,10 @@ public class ProcessorTest {
     @Test
     public void testGetFrequencyUnit() {
         System.out.println("getFrequencyUnit");
-        Processor instance = new Processor();
-        FrequencyUnit expResult = null;
+        FrequencyUnit expResult = FrequencyUnit.GIGAHERTZ;
+        instance.setFrequencyUnit(FrequencyUnit.GIGAHERTZ);
         FrequencyUnit result = instance.getFrequencyUnit();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -194,11 +163,10 @@ public class ProcessorTest {
     @Test
     public void testSetFrequencyUnit() {
         System.out.println("setFrequencyUnit");
-        FrequencyUnit frequencyUnit = null;
-        Processor instance = new Processor();
-        instance.setFrequencyUnit(frequencyUnit);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        FrequencyUnit expResult = FrequencyUnit.GIGAHERTZ;
+        instance.setFrequencyUnit(FrequencyUnit.GIGAHERTZ);
+        FrequencyUnit result = instance.getFrequencyUnit();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -207,12 +175,11 @@ public class ProcessorTest {
     @Test
     public void testGetManufacturer() {
         System.out.println("getManufacturer");
-        Processor instance = new Processor();
-        Manufacturer expResult = null;
-        Manufacturer result = instance.getManufacturer();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(7));
+        instance.setManufacturer(manufacturer);
+        Long result = instance.getManufacturer().getId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -221,11 +188,11 @@ public class ProcessorTest {
     @Test
     public void testSetManufacturer() {
         System.out.println("setManufacturer");
-        Manufacturer manufacturer = null;
-        Processor instance = new Processor();
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(7));
         instance.setManufacturer(manufacturer);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long result = instance.getManufacturer().getId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -234,12 +201,12 @@ public class ProcessorTest {
     @Test
     public void testGetComputers() {
         System.out.println("getComputers");
-        Processor instance = new Processor();
-        Set<Computer> expResult = null;
-        Set<Computer> result = instance.getComputers();
+        instance.setId(Long.valueOf(7));
+        Computer computer = new Computer();
+        computer.setProcessor(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = computer.getProcessor().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -248,11 +215,12 @@ public class ProcessorTest {
     @Test
     public void testSetComputers() {
         System.out.println("setComputers");
-        Set<Computer> computers = null;
-        Processor instance = new Processor();
-        instance.setComputers(computers);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setId(Long.valueOf(7));
+        Computer computer = new Computer();
+        computer.setProcessor(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = computer.getProcessor().getId();
+        assertEquals(expResult, result);
     }
     
 }
