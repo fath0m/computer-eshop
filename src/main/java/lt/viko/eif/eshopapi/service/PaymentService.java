@@ -34,7 +34,16 @@ public class PaymentService {
 
     public Payment createPayment(CreatePaymentDTO createPaymentDTO){
         Payment payment = buildFromDTO(createPaymentDTO);
-        return paymentRepository.save(payment);
+        payment = paymentRepository.save(payment);
+        
+        if (payment != null) {
+            Checkout checkout = payment.getCheckout();
+            checkout.setPaidOut(true);
+
+            checkoutRepository.save(checkout);
+        }
+
+        return payment;
     }
 
     public Payment updatePaymentId(Long id, UpdatePaymentDTO updatePaymentDTO){
