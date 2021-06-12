@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class CartItemsService {
+public class CartItemService {
     /**
      * Adding repositories that we will need
      */
