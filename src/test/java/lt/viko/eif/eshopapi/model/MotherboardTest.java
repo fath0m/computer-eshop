@@ -18,12 +18,14 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author PC
  */
 public class MotherboardTest {
+    Motherboard instance = new Motherboard();
     
     public MotherboardTest() {
     }
     
     @AfterEach
     public void tearDown() {
+        instance = new Motherboard();
     }
 
     /**
@@ -32,12 +34,10 @@ public class MotherboardTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Motherboard instance = new Motherboard();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setId(Long.valueOf(1));
         Long result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -46,11 +46,10 @@ public class MotherboardTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        Long id = null;
-        Motherboard instance = new Motherboard();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(1);
+        instance.setId(Long.valueOf(1));
+        Long result = instance.getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -59,12 +58,10 @@ public class MotherboardTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        Motherboard instance = new Motherboard();
-        String expResult = "";
+        String expResult = "MOTHERBOARD";
+        instance.setName("MOTHERBOARD");
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,11 +70,10 @@ public class MotherboardTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        Motherboard instance = new Motherboard();
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "MOTHERBOARD";
+        instance.setName("MOTHERBOARD");
+        String result = instance.getName();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -86,12 +82,11 @@ public class MotherboardTest {
     @Test
     public void testGetManufacturer() {
         System.out.println("getManufacturer");
-        Motherboard instance = new Motherboard();
-        Manufacturer expResult = null;
-        Manufacturer result = instance.getManufacturer();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(7));
+        instance.setManufacturer(manufacturer);
+        Long result = instance.getManufacturer().getId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -100,11 +95,11 @@ public class MotherboardTest {
     @Test
     public void testSetManufacturer() {
         System.out.println("setManufacturer");
-        Manufacturer manufacturer = null;
-        Motherboard instance = new Motherboard();
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(5));
         instance.setManufacturer(manufacturer);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long result = instance.getManufacturer().getId();
+        assertEquals(Long.valueOf(5),result);
     }
 
     /**
@@ -113,12 +108,12 @@ public class MotherboardTest {
     @Test
     public void testGetComputers() {
         System.out.println("getComputers");
-        Motherboard instance = new Motherboard();
-        Set<Computer> expResult = null;
-        Set<Computer> result = instance.getComputers();
+        instance.setId(Long.valueOf(7));
+        Computer computer = new Computer();
+        computer.setMotherboard(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = computer.getMotherboard().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -127,11 +122,12 @@ public class MotherboardTest {
     @Test
     public void testSetComputers() {
         System.out.println("setComputers");
-        Set<Computer> computers = null;
-        Motherboard instance = new Motherboard();
-        instance.setComputers(computers);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setId(Long.valueOf(7));
+        Computer computer = new Computer();
+        computer.setMotherboard(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = computer.getMotherboard().getId();
+        assertEquals(expResult, result);
     }
     
 }

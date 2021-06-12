@@ -19,12 +19,14 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author PC
  */
 public class MemoryTest {
+    Memory instance = new Memory();
     
     public MemoryTest() {
     }
     
     @AfterEach
     public void tearDown() {
+        instance = new Memory();
     }
 
     /**
@@ -33,12 +35,10 @@ public class MemoryTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Memory instance = new Memory();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setId(Long.valueOf(1));
         Long result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -47,11 +47,10 @@ public class MemoryTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        Long id = null;
-        Memory instance = new Memory();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(1);
+        instance.setId(Long.valueOf(1));
+        Long result = instance.getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -60,12 +59,10 @@ public class MemoryTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        Memory instance = new Memory();
-        String expResult = "";
+        String expResult = "Memory";
+        instance.setName("Memory");
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -74,11 +71,10 @@ public class MemoryTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        Memory instance = new Memory();
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Memory";
+        instance.setName("Memory");
+        String result = instance.getName();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -87,12 +83,10 @@ public class MemoryTest {
     @Test
     public void testGetAmount() {
         System.out.println("getAmount");
-        Memory instance = new Memory();
-        double expResult = 0.0;
+        double expResult = 500.0;
+        instance.setAmount(500.0);
         double result = instance.getAmount();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -101,11 +95,10 @@ public class MemoryTest {
     @Test
     public void testSetAmount() {
         System.out.println("setAmount");
-        double amount = 0.0;
-        Memory instance = new Memory();
-        instance.setAmount(amount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        double expResult = 200.0;
+        instance.setAmount(200.0);
+        double result = instance.getAmount();
+        assertEquals(expResult,result);
     }
 
     /**
@@ -114,12 +107,10 @@ public class MemoryTest {
     @Test
     public void testGetAmountUnit() {
         System.out.println("getAmountUnit");
-        Memory instance = new Memory();
-        SizeUnit expResult = null;
+        SizeUnit expResult = SizeUnit.GIGABYTE;
+        instance.setAmountUnit(SizeUnit.GIGABYTE);
         SizeUnit result = instance.getAmountUnit();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -128,11 +119,10 @@ public class MemoryTest {
     @Test
     public void testSetAmountUnit() {
         System.out.println("setAmountUnit");
-        SizeUnit amountUnit = null;
-        Memory instance = new Memory();
-        instance.setAmountUnit(amountUnit);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        SizeUnit expResult = SizeUnit.MEGABYTE;
+        instance.setAmountUnit(SizeUnit.MEGABYTE);
+        SizeUnit result = instance.getAmountUnit();
+        assertEquals(expResult,result);
     }
 
     /**
@@ -141,12 +131,11 @@ public class MemoryTest {
     @Test
     public void testGetManufacturer() {
         System.out.println("getManufacturer");
-        Memory instance = new Memory();
-        Manufacturer expResult = null;
-        Manufacturer result = instance.getManufacturer();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(7));
+        instance.setManufacturer(manufacturer);
+        Long result = instance.getManufacturer().getId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -155,11 +144,11 @@ public class MemoryTest {
     @Test
     public void testSetManufacturer() {
         System.out.println("setManufacturer");
-        Manufacturer manufacturer = null;
-        Memory instance = new Memory();
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(5));
         instance.setManufacturer(manufacturer);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long result = instance.getManufacturer().getId();
+        assertEquals(Long.valueOf(5), result);
     }
 
     /**
@@ -168,12 +157,12 @@ public class MemoryTest {
     @Test
     public void testGetComputers() {
         System.out.println("getComputers");
-        Memory instance = new Memory();
-        Set<Computer> expResult = null;
-        Set<Computer> result = instance.getComputers();
+        instance.setId(Long.valueOf(7));
+        Computer computer = new Computer();
+        computer.setMemory(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = computer.getMemory().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -182,11 +171,12 @@ public class MemoryTest {
     @Test
     public void testSetComputers() {
         System.out.println("setComputers");
-        Set<Computer> computers = null;
-        Memory instance = new Memory();
-        instance.setComputers(computers);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setId(Long.valueOf(5));
+        Computer computer = new Computer();
+        computer.setMemory(instance);
+        Long expResult = Long.valueOf(5);
+        Long result = computer.getMemory().getId();
+        assertEquals(expResult, result);
     }
     
 }

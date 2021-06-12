@@ -18,12 +18,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author PC
  */
 public class CheckoutTest {
-    
-    public CheckoutTest() {
-    }
-    
+
+    Checkout instance = new Checkout();
     @AfterEach
     public void tearDown() {
+        instance = new Checkout();
     }
 
     /**
@@ -32,12 +31,10 @@ public class CheckoutTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Checkout instance = new Checkout();
-        Long expResult = null;
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
         Long result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -46,11 +43,10 @@ public class CheckoutTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        Long id = null;
-        Checkout instance = new Checkout();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
+        Long result = instance.getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -59,12 +55,10 @@ public class CheckoutTest {
     @Test
     public void testGetFirstName() {
         System.out.println("getFirstName");
-        Checkout instance = new Checkout();
-        String expResult = "";
+        String expResult = "Karolis";
+        instance.setFirstName("Karolis");
         String result = instance.getFirstName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,11 +67,10 @@ public class CheckoutTest {
     @Test
     public void testSetFirstName() {
         System.out.println("setFirstName");
-        String firstName = "";
-        Checkout instance = new Checkout();
-        instance.setFirstName(firstName);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Karolis";
+        instance.setFirstName("Karolis");
+        String result = instance.getFirstName();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -86,12 +79,10 @@ public class CheckoutTest {
     @Test
     public void testGetLastName() {
         System.out.println("getLastName");
-        Checkout instance = new Checkout();
-        String expResult = "";
+        String expResult = "Pigaga";
+        instance.setLastName("Pigaga");
         String result = instance.getLastName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -100,11 +91,10 @@ public class CheckoutTest {
     @Test
     public void testSetLastName() {
         System.out.println("setLastName");
-        String lastName = "";
-        Checkout instance = new Checkout();
-        instance.setLastName(lastName);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Pigaga";
+        instance.setLastName("Pigaga");
+        String result = instance.getLastName();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -113,12 +103,10 @@ public class CheckoutTest {
     @Test
     public void testGetDeliveryAddress() {
         System.out.println("getDeliveryAddress");
-        Checkout instance = new Checkout();
-        String expResult = "";
+        String expResult = "Test gatve 92";
+        instance.setDeliveryAddress("Test gatve 92");
         String result = instance.getDeliveryAddress();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -127,11 +115,10 @@ public class CheckoutTest {
     @Test
     public void testSetDeliveryAddress() {
         System.out.println("setDeliveryAddress");
-        String deliveryAddress = "";
-        Checkout instance = new Checkout();
-        instance.setDeliveryAddress(deliveryAddress);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Test gatve 92";
+        instance.setDeliveryAddress("Test gatve 92");
+        String result = instance.getDeliveryAddress();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -140,12 +127,10 @@ public class CheckoutTest {
     @Test
     public void testGetDeliveryCity() {
         System.out.println("getDeliveryCity");
-        Checkout instance = new Checkout();
-        String expResult = "";
+        String expResult = "Vilnius";
+        instance.setDeliveryCity("Vilnius");
         String result = instance.getDeliveryCity();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -154,11 +139,10 @@ public class CheckoutTest {
     @Test
     public void testSetDeliveryCity() {
         System.out.println("setDeliveryCity");
-        String deliveryCity = "";
-        Checkout instance = new Checkout();
-        instance.setDeliveryCity(deliveryCity);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Vilnius";
+        instance.setDeliveryCity("Vilnius");
+        String result = instance.getDeliveryCity();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -167,12 +151,10 @@ public class CheckoutTest {
     @Test
     public void testGetDeliveryCountry() {
         System.out.println("getDeliveryCountry");
-        Checkout instance = new Checkout();
-        String expResult = "";
+        String expResult = "Lietuva";
+        instance.setDeliveryCountry("Lietuva");
         String result = instance.getDeliveryCountry();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -181,11 +163,10 @@ public class CheckoutTest {
     @Test
     public void testSetDeliveryCountry() {
         System.out.println("setDeliveryCountry");
-        String deliveryCountry = "";
-        Checkout instance = new Checkout();
-        instance.setDeliveryCountry(deliveryCountry);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "Lietuva";
+        instance.setDeliveryCountry("Lietuva");
+        String result = instance.getDeliveryCountry();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -194,12 +175,10 @@ public class CheckoutTest {
     @Test
     public void testIsPaidOut() {
         System.out.println("isPaidOut");
-        Checkout instance = new Checkout();
-        boolean expResult = false;
+        boolean expResult = true;
+        instance.setPaidOut(true);
         boolean result = instance.isPaidOut();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -208,11 +187,10 @@ public class CheckoutTest {
     @Test
     public void testSetPaidOut() {
         System.out.println("setPaidOut");
-        boolean paidOut = false;
-        Checkout instance = new Checkout();
-        instance.setPaidOut(paidOut);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean expResult = true;
+        instance.setPaidOut(true);
+        boolean result = instance.isPaidOut();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -221,12 +199,10 @@ public class CheckoutTest {
     @Test
     public void testGetCurrency() {
         System.out.println("getCurrency");
-        Checkout instance = new Checkout();
-        Currency expResult = null;
+        Currency expResult = Currency.EUR;
+        instance.setCurrency(Currency.EUR);
         Currency result = instance.getCurrency();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -235,11 +211,10 @@ public class CheckoutTest {
     @Test
     public void testSetCurrency() {
         System.out.println("setCurrency");
-        Currency currency = null;
-        Checkout instance = new Checkout();
-        instance.setCurrency(currency);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Currency expResult = Currency.EUR;
+        instance.setCurrency(Currency.EUR);
+        Currency result = instance.getCurrency();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -249,11 +224,12 @@ public class CheckoutTest {
     public void testGetCart() {
         System.out.println("getCart");
         Checkout instance = new Checkout();
-        Cart expResult = null;
-        Cart result = instance.getCart();
+        Cart cart = new Cart();
+        cart.setId(Long.valueOf(7));
+        instance.setCart(cart);
+        Long expResult = Long.valueOf(7);
+        Long result = instance.getCart().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -262,11 +238,13 @@ public class CheckoutTest {
     @Test
     public void testSetCart() {
         System.out.println("setCart");
-        Cart cart = null;
         Checkout instance = new Checkout();
+        Cart cart = new Cart();
+        cart.setId(Long.valueOf(7));
         instance.setCart(cart);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(7);
+        Long result = instance.getCart().getId();
+        assertEquals(expResult, result);
     }
     
 }
