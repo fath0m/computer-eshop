@@ -19,23 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class PaymentTest {
     
-    public PaymentTest() {
-    }
+    Payment instance = new Payment();
     
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
+
     
     @AfterEach
     public void tearDown() {
+        instance = new Payment();
     }
 
     /**
@@ -44,12 +34,10 @@ public class PaymentTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Payment instance = new Payment();
-        Long expResult = null;
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
         Long result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,11 +46,10 @@ public class PaymentTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        Long id = null;
-        Payment instance = new Payment();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
+        Long result = instance.getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -71,12 +58,12 @@ public class PaymentTest {
     @Test
     public void testGetCheckout() {
         System.out.println("getCheckout");
-        Payment instance = new Payment();
-        Checkout expResult = null;
-        Checkout result = instance.getCheckout();
+        Checkout checkout = new Checkout();
+        checkout.setId(Long.valueOf(5));
+        instance.setCheckout(checkout);
+        Long expResult = Long.valueOf(5);
+        Long result = instance.getCheckout().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -85,11 +72,12 @@ public class PaymentTest {
     @Test
     public void testSetCheckout() {
         System.out.println("setCheckout");
-        Checkout checkout = null;
-        Payment instance = new Payment();
+        Checkout checkout = new Checkout();
+        checkout.setId(Long.valueOf(5));
         instance.setCheckout(checkout);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(5);
+        Long result = instance.getCheckout().getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -98,12 +86,10 @@ public class PaymentTest {
     @Test
     public void testGetAmountPaid() {
         System.out.println("getAmountPaid");
-        Payment instance = new Payment();
-        double expResult = 0.0;
+        double expResult = 250.99;
+        instance.setAmountPaid(250.99);
         double result = instance.getAmountPaid();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -112,11 +98,10 @@ public class PaymentTest {
     @Test
     public void testSetAmountPaid() {
         System.out.println("setAmountPaid");
-        double amountPaid = 0.0;
-        Payment instance = new Payment();
-        instance.setAmountPaid(amountPaid);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        double expResult = 250.99;
+        instance.setAmountPaid(250.99);
+        double result = instance.getAmountPaid();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -125,12 +110,11 @@ public class PaymentTest {
     @Test
     public void testGetPaidAt() {
         System.out.println("getPaidAt");
-        Payment instance = new Payment();
-        Date expResult = null;
+        String str="2015-03-31";
+        Date expResult = Date.valueOf(str);
+        instance.setPaidAt(Date.valueOf(str));
         Date result = instance.getPaidAt();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -139,11 +123,11 @@ public class PaymentTest {
     @Test
     public void testSetPaidAt() {
         System.out.println("setPaidAt");
-        Date paidAt = null;
-        Payment instance = new Payment();
-        instance.setPaidAt(paidAt);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String str="2015-03-31";
+        Date expResult = Date.valueOf(str);
+        instance.setPaidAt(Date.valueOf(str));
+        Date result = instance.getPaidAt();
+        assertEquals(expResult, result);
     }
     
 }
