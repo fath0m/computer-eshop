@@ -22,18 +22,6 @@ public class MotherboardTest {
     public MotherboardTest() {
     }
     
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
     @AfterEach
     public void tearDown() {
     }
