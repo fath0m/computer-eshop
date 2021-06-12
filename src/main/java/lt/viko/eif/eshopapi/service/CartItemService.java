@@ -41,8 +41,24 @@ public class CartItemService {
         return cartItem;
     }
 
+    private boolean isCartItemValid(CartItem cartItem) {
+        if (cartItem.getQuantity() < 1) {
+            return false;
+        }
+
+        if (cartItem.getQuantity() > cartItem.getComputer().getStockQuantity()) {
+            return false;
+        }
+
+        return true;
+    }
+
     public CartItem createCartItem(CreateCartItemsDTO createCartItemsDTO){
         CartItem cartItem = buildFromDTO(createCartItemsDTO);//provide createCartItemsDto to buildFromDto function
+
+        if (!isCartItemValid(cartItem)) {
+            return null;
+        }
 
         return cartItemRepository.save(cartItem);
     }
@@ -50,6 +66,10 @@ public class CartItemService {
     public CartItem updateCartItem(Long id, UpdateCartItemsDTO updateCartItemsDTO){
         CartItem cartItem = buildFromDTO(updateCartItemsDTO);//provide createCartItemsDto to buildFromDto function
         cartItem.setId(id);
+
+        if (!isCartItemValid(cartItem)) {
+            return null;
+        }
 
         return cartItemRepository.save(cartItem);
     }
