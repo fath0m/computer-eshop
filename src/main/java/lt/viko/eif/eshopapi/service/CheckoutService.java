@@ -35,12 +35,12 @@ public class CheckoutService {
         return checkout;
     }
 
-    public Checkout createCheackout(CreateCheckoutDTO createCheckoutDTO){
+    public Checkout createCheckout(CreateCheckoutDTO createCheckoutDTO){
         Checkout checkout = buildFromDTO(createCheckoutDTO);
         return checkoutRepository.save(checkout);
     }
 
-    public Checkout updateCheackoutById(Long id, UpdateCheckoutDTO updateCheckoutDTO){
+    public Checkout updateCheckoutById(Long id, UpdateCheckoutDTO updateCheckoutDTO){
         Checkout checkout = buildFromDTO(updateCheckoutDTO);
         checkout.setId(id);
 
