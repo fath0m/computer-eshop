@@ -20,17 +20,23 @@ public class CheckoutService {
     @Autowired
     CartRepository cartRepository;
 
-    private Checkout buildFromDTO(CreateCheckoutDTO dto){
+    private Checkout buildFromCreateDTO(CreateCheckoutDTO dto){
         Checkout checkout = new Checkout();
         checkout.setFirstName(dto.getFirstName());
         checkout.setLastName(dto.getLastName());
         checkout.setDeliveryAddress(dto.getDeliveryAddress());
         checkout.setDeliveryCity(dto.getDeliveryCity());
         checkout.setDeliveryCountry(dto.getDeliveryCountry());
-        checkout.setPaidOut(dto.isPaidOut());
 
         Optional<Cart> cart = cartRepository.findById(dto.getCardId());
         checkout.setCart(cart.get());
+
+        return checkout;
+    }
+
+    private Checkout buildFromUpdateDTO(UpdateCheckoutDTO dto) {
+        Checkout checkout = buildFromCreateDTO(dto);
+        checkout.setPaidOut(dto.isPaidOut());
 
         return checkout;
     }
@@ -45,7 +51,10 @@ public class CheckoutService {
     }
 
     public Checkout createCheckout(CreateCheckoutDTO createCheckoutDTO){
-        Checkout checkout = buildFromDTO(createCheckoutDTO);
+        Checkout checkout = buildFromCreateDTO(createCheckoutDTO);
+
+        // Default values
+        checkout.setPaidOut(false);
 
         if (!isCheckoutValid(checkout)) {
             return null;
@@ -64,7 +73,7 @@ public class CheckoutService {
     }
 
     public Checkout updateCheckoutById(Long id, UpdateCheckoutDTO updateCheckoutDTO){
-        Checkout checkout = buildFromDTO(updateCheckoutDTO);
+        Checkout checkout = buildFromUpdateDTO(updateCheckoutDTO);
         checkout.setId(id);
 
         return checkoutRepository.save(checkout);
