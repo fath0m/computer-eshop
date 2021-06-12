@@ -2,12 +2,9 @@ package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.checkout.CreateCheckoutDTO;
 import lt.viko.eif.eshopapi.dto.checkout.UpdateCheckoutDTO;
-import lt.viko.eif.eshopapi.dto.computer.UpdateComputerDTO;
 import lt.viko.eif.eshopapi.model.Checkout;
-import lt.viko.eif.eshopapi.model.Computer;
 import lt.viko.eif.eshopapi.repository.CheckoutRepository;
 import lt.viko.eif.eshopapi.service.CheckoutService;
-import org.hibernate.annotations.Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -17,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.awt.*;
 import java.util.Optional;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -92,7 +88,7 @@ public class CheckoutController {
      */
     @PostMapping
     public ResponseEntity<EntityModel<Checkout>> addCheckout(@RequestBody CreateCheckoutDTO newCheckout){
-        Checkout checkout = checkoutService.createCheackout(newCheckout);
+        Checkout checkout = checkoutService.createCheckout(newCheckout);
 
         if(checkout == null)
             return ResponseEntity.notFound().build();
@@ -116,7 +112,7 @@ public class CheckoutController {
         if (checkout.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        Checkout updatedCheckout = checkoutService.updateCheackoutById(id, newCheckout);
+        Checkout updatedCheckout = checkoutService.updateCheckoutById(id, newCheckout);
 
         EntityModel<Checkout> model = EntityModel.of(updatedCheckout);
         final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();

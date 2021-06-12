@@ -50,6 +50,11 @@ public class CartItemService {
             return false;
         }
 
+        // Do not allow adding additional items in to the cart once it is fully checked out
+        if (cartItem.getCart().isCheckedOut()) {
+            return false;
+        }
+
         return true;
     }
 

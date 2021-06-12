@@ -10,7 +10,6 @@ public class CreateCheckoutDTO {
     private String deliveryAddress;
     private String deliveryCity;
     private String deliveryCountry;
-    private boolean isPaidOut;
     private Long cardId;
 
     public String getFirstName() {
@@ -51,14 +50,6 @@ public class CreateCheckoutDTO {
 
     public void setDeliveryCountry(String deliveryCountry) {
         this.deliveryCountry = deliveryCountry;
-    }
-
-    public boolean isPaidOut() {
-        return isPaidOut;
-    }
-
-    public void setPaidOut(boolean paidOut) {
-        isPaidOut = paidOut;
     }
 
     public Long getCardId() {
