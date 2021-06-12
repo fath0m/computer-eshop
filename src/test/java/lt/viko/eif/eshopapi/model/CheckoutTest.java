@@ -22,18 +22,6 @@ public class CheckoutTest {
     public CheckoutTest() {
     }
     
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
     @AfterEach
     public void tearDown() {
     }
