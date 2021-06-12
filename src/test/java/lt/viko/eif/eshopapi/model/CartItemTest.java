@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author PC
  */
 public class CartItemTest {
-    
+    CartItem instance = new CartItem();
     public CartItemTest() {
     }
     @AfterEach
@@ -30,12 +30,10 @@ public class CartItemTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        CartItem instance = new CartItem();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setId(Long.valueOf(1));
         Long result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -44,11 +42,10 @@ public class CartItemTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        Long id = null;
-        CartItem instance = new CartItem();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(1);
+        instance.setId(Long.valueOf(1));
+        Long result = instance.getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -57,12 +54,11 @@ public class CartItemTest {
     @Test
     public void testGetComputer() {
         System.out.println("getComputer");
-        CartItem instance = new CartItem();
-        Computer expResult = null;
-        Computer result = instance.getComputer();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Computer computer = new Computer();
+        computer.setId(Long.valueOf(7));
+        instance.setComputer(computer);
+        Long result = instance.getComputer().getId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -71,11 +67,11 @@ public class CartItemTest {
     @Test
     public void testSetComputer() {
         System.out.println("setComputer");
-        Computer computer = null;
-        CartItem instance = new CartItem();
+        Computer computer = new Computer();
+        computer.setId(Long.valueOf(8));
         instance.setComputer(computer);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long result = instance.getComputer().getId();
+        assertEquals(Long.valueOf(8), result);
     }
 
     /**
@@ -84,12 +80,11 @@ public class CartItemTest {
     @Test
     public void testGetCart() {
         System.out.println("getCart");
-        CartItem instance = new CartItem();
-        Cart expResult = null;
-        Cart result = instance.getCart();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Cart cart = new Cart();
+        cart.setId(Long.valueOf(7));
+        instance.setCart(cart);
+        Long result = instance.getCart().getId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -98,11 +93,11 @@ public class CartItemTest {
     @Test
     public void testSetCart() {
         System.out.println("setCart");
-        Cart cart = null;
-        CartItem instance = new CartItem();
+        Cart cart = new Cart();
+        cart.setId(Long.valueOf(7));
         instance.setCart(cart);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long result = instance.getCart().getId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -111,12 +106,10 @@ public class CartItemTest {
     @Test
     public void testGetQuantity() {
         System.out.println("getQuantity");
-        CartItem instance = new CartItem();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setQuantity(Long.valueOf(1));
         Long result = instance.getQuantity();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -125,11 +118,10 @@ public class CartItemTest {
     @Test
     public void testSetQuantity() {
         System.out.println("setQuantity");
-        Long quantity = null;
-        CartItem instance = new CartItem();
-        instance.setQuantity(quantity);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(1);
+        instance.setQuantity(Long.valueOf(1));
+        Long result = instance.getQuantity();
+        assertEquals(expResult, result);
     }
     
 }
