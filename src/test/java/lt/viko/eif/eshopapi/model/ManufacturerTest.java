@@ -18,12 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author PC
  */
 public class ManufacturerTest {
-    
+    Manufacturer instance = new Manufacturer();
     public ManufacturerTest() {
     }
     
     @AfterEach
     public void tearDown() {
+        instance = new Manufacturer();
     }
 
     /**
@@ -32,12 +33,10 @@ public class ManufacturerTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Manufacturer instance = new Manufacturer();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setId(Long.valueOf(1));
         Long result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -46,11 +45,10 @@ public class ManufacturerTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        Long id = null;
-        Manufacturer instance = new Manufacturer();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(1);
+        instance.setId(Long.valueOf(1));
+        Long result = instance.getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -59,12 +57,10 @@ public class ManufacturerTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        Manufacturer instance = new Manufacturer();
-        String expResult = "";
+        String expResult = "MANUFACTURER";
+        instance.setName("MANUFACTURER");
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,11 +69,10 @@ public class ManufacturerTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        Manufacturer instance = new Manufacturer();
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "MANUFACTURER";
+        instance.setName("MANUFACTURER");
+        String result = instance.getName();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -86,12 +81,10 @@ public class ManufacturerTest {
     @Test
     public void testGetCountry() {
         System.out.println("getCountry");
-        Manufacturer instance = new Manufacturer();
-        String expResult = "";
+        String expResult = "LITHUANIA";
+        instance.setCountry("LITHUANIA");
         String result = instance.getCountry();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -100,11 +93,10 @@ public class ManufacturerTest {
     @Test
     public void testSetCountry() {
         System.out.println("setCountry");
-        String country = "";
-        Manufacturer instance = new Manufacturer();
-        instance.setCountry(country);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "LITHUANIA";
+        instance.setCountry("LITHUANIA");
+        String result = instance.getCountry();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -113,12 +105,10 @@ public class ManufacturerTest {
     @Test
     public void testGetWebsite() {
         System.out.println("getWebsite");
-        Manufacturer instance = new Manufacturer();
-        String expResult = "";
+        String expResult = "www.website.com";
+        instance.setWebsite("www.website.com");
         String result = instance.getWebsite();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -127,11 +117,10 @@ public class ManufacturerTest {
     @Test
     public void testSetWebsite() {
         System.out.println("setWebsite");
-        String website = "";
-        Manufacturer instance = new Manufacturer();
-        instance.setWebsite(website);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "www.website.com";
+        instance.setWebsite("www.website.com");
+        String result = instance.getWebsite();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -140,12 +129,12 @@ public class ManufacturerTest {
     @Test
     public void testGetComputers() {
         System.out.println("getComputers");
-        Manufacturer instance = new Manufacturer();
-        Set<Computer> expResult = null;
-        Set<Computer> result = instance.getComputers();
+        instance.setId(Long.valueOf(7));
+        Computer computer = new Computer();
+        computer.setManufacturer(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = computer.getManufacturer().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -154,11 +143,12 @@ public class ManufacturerTest {
     @Test
     public void testSetComputers() {
         System.out.println("setComputers");
-        Set<Computer> computers = null;
-        Manufacturer instance = new Manufacturer();
-        instance.setComputers(computers);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setId(Long.valueOf(7));
+        Computer computer = new Computer();
+        computer.setManufacturer(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = computer.getManufacturer().getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -167,12 +157,12 @@ public class ManufacturerTest {
     @Test
     public void testGetGraphicsCards() {
         System.out.println("getGraphicsCards");
-        Manufacturer instance = new Manufacturer();
-        Set<GraphicsCard> expResult = null;
-        Set<GraphicsCard> result = instance.getGraphicsCards();
+        instance.setId(Long.valueOf(7));
+        GraphicsCard graphicsCard = new GraphicsCard();
+        graphicsCard.setManufacturer(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = graphicsCard.getManufacturer().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -181,11 +171,12 @@ public class ManufacturerTest {
     @Test
     public void testSetGraphicsCards() {
         System.out.println("setGraphicsCards");
-        Set<GraphicsCard> graphicsCards = null;
-        Manufacturer instance = new Manufacturer();
-        instance.setGraphicsCards(graphicsCards);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setId(Long.valueOf(5));
+        GraphicsCard graphicsCard = new GraphicsCard();
+        graphicsCard.setManufacturer(instance);
+        Long expResult = Long.valueOf(5);
+        Long result = graphicsCard.getManufacturer().getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -194,12 +185,12 @@ public class ManufacturerTest {
     @Test
     public void testGetMemories() {
         System.out.println("getMemories");
-        Manufacturer instance = new Manufacturer();
-        Set<Memory> expResult = null;
-        Set<Memory> result = instance.getMemories();
+        instance.setId(Long.valueOf(7));
+        Memory memory = new Memory();
+        memory.setManufacturer(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = memory.getManufacturer().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -208,11 +199,12 @@ public class ManufacturerTest {
     @Test
     public void testSetMemories() {
         System.out.println("setMemories");
-        Set<Memory> memories = null;
-        Manufacturer instance = new Manufacturer();
-        instance.setMemories(memories);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setId(Long.valueOf(7));
+        Memory memory = new Memory();
+        memory.setManufacturer(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = memory.getManufacturer().getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -221,12 +213,12 @@ public class ManufacturerTest {
     @Test
     public void testGetProcessors() {
         System.out.println("getProcessors");
-        Manufacturer instance = new Manufacturer();
-        Set<Processor> expResult = null;
-        Set<Processor> result = instance.getProcessors();
+        instance.setId(Long.valueOf(7));
+        Processor processor = new Processor();
+        processor.setManufacturer(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = processor.getManufacturer().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -235,11 +227,12 @@ public class ManufacturerTest {
     @Test
     public void testSetProcessors() {
         System.out.println("setProcessors");
-        Set<Processor> processors = null;
-        Manufacturer instance = new Manufacturer();
-        instance.setProcessors(processors);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setId(Long.valueOf(7));
+        Processor processor = new Processor();
+        processor.setManufacturer(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = processor.getManufacturer().getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -247,13 +240,12 @@ public class ManufacturerTest {
      */
     @Test
     public void testGetStorages() {
-        System.out.println("getStorages");
-        Manufacturer instance = new Manufacturer();
-        Set<Storage> expResult = null;
-        Set<Storage> result = instance.getStorages();
+        instance.setId(Long.valueOf(7));
+        Storage storage = new Storage();
+        storage.setManufacturer(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = storage.getManufacturer().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -262,11 +254,12 @@ public class ManufacturerTest {
     @Test
     public void testSetStorages() {
         System.out.println("setStorages");
-        Set<Storage> storages = null;
-        Manufacturer instance = new Manufacturer();
-        instance.setStorages(storages);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setId(Long.valueOf(7));
+        Storage storage = new Storage();
+        storage.setManufacturer(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = storage.getManufacturer().getId();
+        assertEquals(expResult, result);
     }
     
 }
