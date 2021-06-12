@@ -35,9 +35,32 @@ public class CheckoutService {
         return checkout;
     }
 
+    private boolean isCheckoutValid(Checkout checkout) {
+        // Cart is already checked out, can't have multiple checkouts
+        if (checkout.getCart().isCheckedOut()) {
+            return false;
+        }
+
+        return true;
+    }
+
     public Checkout createCheckout(CreateCheckoutDTO createCheckoutDTO){
         Checkout checkout = buildFromDTO(createCheckoutDTO);
-        return checkoutRepository.save(checkout);
+
+        if (!isCheckoutValid(checkout)) {
+            return null;
+        }
+
+        checkout = checkoutRepository.save(checkout);
+
+        // Mark cart as check out on success
+        if (checkout != null) {
+            Cart cart = checkout.getCart();
+            cart.setCheckedOut(true);
+            cartRepository.save(cart);
+        }
+
+        return checkout;
     }
 
     public Checkout updateCheckoutById(Long id, UpdateCheckoutDTO updateCheckoutDTO){
