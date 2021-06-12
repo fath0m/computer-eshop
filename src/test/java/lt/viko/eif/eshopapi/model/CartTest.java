@@ -18,11 +18,11 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class CartTest {
     
-    public CartTest() {
-    }
+    Cart instance = new Cart();
     
     @AfterEach
     public void tearDown() {
+        instance = new Cart();
     }
 
     /**
@@ -31,12 +31,10 @@ public class CartTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        Cart instance = new Cart();
-        Long expResult = null;
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
         Long result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -45,11 +43,10 @@ public class CartTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        Long id = null;
-        Cart instance = new Cart();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
+        Long result = instance.getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -58,12 +55,10 @@ public class CartTest {
     @Test
     public void testIsCheckedOut() {
         System.out.println("isCheckedOut");
-        Cart instance = new Cart();
-        boolean expResult = false;
+        boolean expResult = true;
+        instance.setCheckedOut(true);
         boolean result = instance.isCheckedOut();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -72,11 +67,10 @@ public class CartTest {
     @Test
     public void testSetCheckedOut() {
         System.out.println("setCheckedOut");
-        boolean checkedOut = false;
-        Cart instance = new Cart();
-        instance.setCheckedOut(checkedOut);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean expResult = true;
+        instance.setCheckedOut(true);
+        boolean result = instance.isCheckedOut();
+        assertEquals(expResult, result);
     }
     
 }
