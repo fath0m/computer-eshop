@@ -1,15 +1,10 @@
 package lt.viko.eif.eshopapi.controller;
 
-import lt.viko.eif.eshopapi.dto.cart.CreateCartDTO;
 import lt.viko.eif.eshopapi.dto.cartItems.CreateCartItemsDTO;
 import lt.viko.eif.eshopapi.dto.cartItems.UpdateCartItemsDTO;
-import lt.viko.eif.eshopapi.dto.storage.UpdateStorageDTO;
-import lt.viko.eif.eshopapi.model.Cart;
 import lt.viko.eif.eshopapi.model.CartItem;
-import lt.viko.eif.eshopapi.model.Checkout;
-import lt.viko.eif.eshopapi.model.Storage;
 import lt.viko.eif.eshopapi.repository.CartItemRepository;
-import lt.viko.eif.eshopapi.service.CartItemsService;
+import lt.viko.eif.eshopapi.service.CartItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -31,7 +26,7 @@ public class CartItemController {
     CartItemRepository cartItemRepository;
 
     @Autowired
-    CartItemsService cartItemsService;
+    CartItemService cartItemService;
     /**
      * Get cart items
      * @return
@@ -92,7 +87,7 @@ public class CartItemController {
      */
     @PostMapping
     public ResponseEntity<EntityModel<CartItem>> addCartItem(@RequestBody CreateCartItemsDTO newCartItems) {
-        CartItem cartItem = cartItemsService.createCartItem(newCartItems);
+        CartItem cartItem = cartItemService.createCartItem(newCartItems);
 
         if(cartItem == null){
             return ResponseEntity.notFound().build();
@@ -118,7 +113,7 @@ public class CartItemController {
         if(cartItem.isEmpty())
             return ResponseEntity.notFound().build();
 
-        CartItem updateCartItem = cartItemsService.updateCartItem(id, newCartItem);
+        CartItem updateCartItem = cartItemService.updateCartItem(id, newCartItem);
 
         EntityModel<CartItem> model = EntityModel.of(updateCartItem);
         final String uriString = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
