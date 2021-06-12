@@ -22,9 +22,11 @@ public class GraphicsCardTest {
     public GraphicsCardTest() {
     }
 
+    GraphicsCard instance = new GraphicsCard();
     
     @AfterEach
     public void tearDown() {
+        instance = new GraphicsCard();
     }
 
     /**
@@ -33,12 +35,10 @@ public class GraphicsCardTest {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        GraphicsCard instance = new GraphicsCard();
-        Long expResult = null;
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
         Long result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -47,11 +47,10 @@ public class GraphicsCardTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        Long id = null;
-        GraphicsCard instance = new GraphicsCard();
-        instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long expResult = Long.valueOf(7);
+        instance.setId(Long.valueOf(7));
+        Long result = instance.getId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -60,12 +59,10 @@ public class GraphicsCardTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        GraphicsCard instance = new GraphicsCard();
-        String expResult = "";
+        String expResult = "TestGraphicsCard";
+        instance.setName("TestGraphicsCard");
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -74,11 +71,10 @@ public class GraphicsCardTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        GraphicsCard instance = new GraphicsCard();
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "TestGraphicsCard";
+        instance.setName("TestGraphicsCard");
+        String result = instance.getName();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -87,12 +83,11 @@ public class GraphicsCardTest {
     @Test
     public void testGetManufacturer() {
         System.out.println("getManufacturer");
-        GraphicsCard instance = new GraphicsCard();
-        Manufacturer expResult = null;
-        Manufacturer result = instance.getManufacturer();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(7));
+        instance.setManufacturer(manufacturer);
+        Long result = instance.getManufacturer().getId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -101,11 +96,11 @@ public class GraphicsCardTest {
     @Test
     public void testSetManufacturer() {
         System.out.println("setManufacturer");
-        Manufacturer manufacturer = null;
-        GraphicsCard instance = new GraphicsCard();
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(7));
         instance.setManufacturer(manufacturer);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Long result = instance.getManufacturer().getId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -114,12 +109,12 @@ public class GraphicsCardTest {
     @Test
     public void testGetComputers() {
         System.out.println("getComputers");
-        GraphicsCard instance = new GraphicsCard();
-        Set<Computer> expResult = null;
-        Set<Computer> result = instance.getComputers();
+        instance.setId(Long.valueOf(7));
+        Computer computer = new Computer();
+        computer.setGraphicsCard(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = computer.getGraphicsCard().getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -128,11 +123,12 @@ public class GraphicsCardTest {
     @Test
     public void testSetComputers() {
         System.out.println("setComputers");
-        Set<Computer> computers = null;
-        GraphicsCard instance = new GraphicsCard();
-        instance.setComputers(computers);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setId(Long.valueOf(7));
+        Computer computer = new Computer();
+        computer.setGraphicsCard(instance);
+        Long expResult = Long.valueOf(7);
+        Long result = computer.getGraphicsCard().getId();
+        assertEquals(expResult, result);
     }
     
 }
