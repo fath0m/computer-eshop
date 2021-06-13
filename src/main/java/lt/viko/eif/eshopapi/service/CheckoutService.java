@@ -11,6 +11,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Represents CheckoutService Object that builds Checkout
+ * from DTO,provides creation and update of Checkout, checks if
+ * Checkout is valid
+ * @author Karolis,Eimantas,Lukas, Jonas
+ * version 1.0
+ */
 @Service
 public class CheckoutService {
 
