@@ -10,6 +10,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+
 import static org.junit.Assert.*;
 
 /**
@@ -17,24 +19,14 @@ import static org.junit.Assert.*;
  * @author Jonas
  */
 public class CreateGraphicsCardDTOTest {
-    
+
+    CreateGraphicsCardDTO instance = new CreateGraphicsCardDTO();
     public CreateGraphicsCardDTOTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
+
+    @AfterEach
     public void tearDown() {
+        instance = new CreateGraphicsCardDTO();
     }
 
     /**
@@ -43,8 +35,8 @@ public class CreateGraphicsCardDTOTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        CreateGraphicsCardDTO instance = new CreateGraphicsCardDTO();
-        String expResult = "";
+        String expResult = "DTOTEST";
+        instance.setName("DTOTEST");
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -55,8 +47,7 @@ public class CreateGraphicsCardDTOTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        CreateGraphicsCardDTO instance = new CreateGraphicsCardDTO();
+        String name = "SETDTO";
         instance.setName(name);
         assertEquals(name, instance.getName());
     }
@@ -67,8 +58,8 @@ public class CreateGraphicsCardDTOTest {
     @Test
     public void testGetManufacturer_id() {
         System.out.println("getManufacturer_id");
-        CreateGraphicsCardDTO instance = new CreateGraphicsCardDTO();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setManufacturer_id(Long.valueOf(1));
         Long result = instance.getManufacturer_id();
         assertEquals(expResult, result);
     }
@@ -79,8 +70,7 @@ public class CreateGraphicsCardDTOTest {
     @Test
     public void testSetManufacturer_id() {
         System.out.println("setManufacturer_id");
-        Long manufacturer_id = null;
-        CreateGraphicsCardDTO instance = new CreateGraphicsCardDTO();
+        Long manufacturer_id = Long.valueOf(2);
         instance.setManufacturer_id(manufacturer_id);
         assertEquals(manufacturer_id, instance.getManufacturer_id());
     }
