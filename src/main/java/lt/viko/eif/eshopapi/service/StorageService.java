@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Represents StorageService Object that builds Storage
+ * from DTO, provides creation and update of Storage
+ * @author Karolis,Eimantas,Lukas
+ * version 1.0
+ */
 @Service
 public class StorageService {
     @Autowired

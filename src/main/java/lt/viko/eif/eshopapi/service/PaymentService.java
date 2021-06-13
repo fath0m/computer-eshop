@@ -15,6 +15,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Represents PaymentService Object that builds Payment
+ * from DTO, provides creation and update of Payment
+ * @author Karolis,Eimantas,Lukas
+ * version 1.0
+ */
 @Service
 public class PaymentService {
 
