@@ -10,7 +10,7 @@ import java.util.Set;
  * Represents Motherboard object which has ManyToOne connections
  * with other Tables Motherboard and OneToMany connection with computers.
  * This class is responsible for getting, setting properties
- * @author Lukas, Eimantas, Jonas, Karolis
+ * @author Lukas, Eimantas, Karolis
  */
 @Entity
 @Table(name = "motherboards")

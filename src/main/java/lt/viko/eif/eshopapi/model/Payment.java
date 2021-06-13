@@ -9,7 +9,7 @@ import java.sql.Date;
  * Represents Payment object which has ManyToOne connections
  * with other Tables Checkout.
  * This class is responsible for getting, setting properties
- * @author Lukas, Eimantas, Jonas, Karolis
+ * @author Lukas, Eimantas, Karolis
  */
 @Entity
 @Table(name = "payments")
