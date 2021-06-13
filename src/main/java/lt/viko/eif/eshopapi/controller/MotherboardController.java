@@ -95,7 +95,7 @@ public class MotherboardController {
         Motherboard motherboard = motherboardService.createMontherboard(newMotherboard);
 
         if (motherboard == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
 
         EntityModel<Motherboard> model = EntityModel.of(motherboard);

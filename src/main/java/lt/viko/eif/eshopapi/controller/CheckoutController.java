@@ -91,7 +91,7 @@ public class CheckoutController {
         Checkout checkout = checkoutService.createCheckout(newCheckout);
 
         if(checkout == null)
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
 
         EntityModel<Checkout> model = EntityModel.of(checkout);
         model.add(linkTo(methodOn(CheckoutController.class).getCheckout()).withRel("get-all"));

@@ -90,7 +90,7 @@ public class CartController {
     Cart cart = cartService.createCart(newCart);
 
     if(cart == null){
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.badRequest().build();
     }
 
     EntityModel<Cart> model = EntityModel.of(cart);

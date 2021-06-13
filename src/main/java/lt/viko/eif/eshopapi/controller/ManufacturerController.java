@@ -94,7 +94,7 @@ public class ManufacturerController {
         Manufacturer manufacturer = manufacturerService.createManufacturer(newManufacturer);
 
         if(manufacturer == null)
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
 
         EntityModel<Manufacturer> model = EntityModel.of(manufacturer);
         model.add(linkTo(methodOn(ManufacturerController.class).getManufacturers()).withRel("get-all"));

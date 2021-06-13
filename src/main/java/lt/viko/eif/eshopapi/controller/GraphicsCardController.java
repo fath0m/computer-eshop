@@ -92,7 +92,7 @@ public class GraphicsCardController {
          */
         GraphicsCard graphicsCard = graphicsCardService.createGraphicsCard(newGraphicCard);
         if (graphicsCard == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
 
         EntityModel<GraphicsCard> model = EntityModel.of(graphicsCard);

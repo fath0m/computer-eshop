@@ -94,7 +94,7 @@ public class MemoryController {
          */
         Memory memory = memoryService.createMemory(newMemory);
         if (memory == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
 
         EntityModel<Memory> model = EntityModel.of(memory);

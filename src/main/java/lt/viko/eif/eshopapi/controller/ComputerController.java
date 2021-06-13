@@ -96,7 +96,7 @@ public class ComputerController {
     	Computer computer = computerService.createComputer(newComputer);
     	
     	if (computer == null) {
-    		return ResponseEntity.notFound().build();
+    		return ResponseEntity.badRequest().build();
     	}
     	
     	EntityModel<Computer> model = EntityModel.of(computer);

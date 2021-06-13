@@ -93,7 +93,7 @@ public class PaymentController {
         Payment payment = paymentService.createPayment(newPayment);
 
         if (payment == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
 
         EntityModel<Payment> model = EntityModel.of(payment);

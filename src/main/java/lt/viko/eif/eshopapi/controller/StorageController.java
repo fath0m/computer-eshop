@@ -95,7 +95,7 @@ public class StorageController {
         Storage storage = storageService.createStorage(newStorage);
 
         if(storage == null){
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().build();
         }
 
         EntityModel<Storage> model = EntityModel.of(storage);
