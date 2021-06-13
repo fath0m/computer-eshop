@@ -19,6 +19,12 @@ import java.util.Optional;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+/**
+ * Represents ComputerController object which is responsible
+ * for GET, PUT, POST, DELETE Requests related with Computer
+ * @author Karolis, Lukas, Eimantas
+ * version 1.0
+ */
 @RestController
 @RequestMapping(value = "/computers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ComputerController {
