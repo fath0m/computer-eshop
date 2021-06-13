@@ -14,23 +14,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Karolis, Eimantas, Lukas
  */
 public class UpdateCartItemsDTOTest {
     
     public UpdateCartItemsDTOTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
     }
     
     @After
