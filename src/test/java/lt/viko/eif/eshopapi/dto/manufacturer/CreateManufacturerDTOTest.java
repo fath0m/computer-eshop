@@ -21,20 +21,11 @@ public class CreateManufacturerDTOTest {
     public CreateManufacturerDTOTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
+    CreateManufacturerDTO instance = new CreateManufacturerDTO();
     
     @After
     public void tearDown() {
+        instance = new CreateManufacturerDTO();
     }
 
     /**
@@ -43,8 +34,8 @@ public class CreateManufacturerDTOTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        CreateManufacturerDTO instance = new CreateManufacturerDTO();
-        String expResult = "";
+        String expResult = "Manufacturer";
+        instance.setName(expResult);
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -55,8 +46,7 @@ public class CreateManufacturerDTOTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        CreateManufacturerDTO instance = new CreateManufacturerDTO();
+        String name = "Test";
         instance.setName(name);
         assertEquals(name, instance.getName());
     }
@@ -67,8 +57,8 @@ public class CreateManufacturerDTOTest {
     @Test
     public void testGetCountry() {
         System.out.println("getCountry");
-        CreateManufacturerDTO instance = new CreateManufacturerDTO();
-        String expResult = "";
+        String expResult = "Lithuania";
+        instance.setCountry(expResult);
         String result = instance.getCountry();
         assertEquals(expResult, result);
     }
@@ -79,8 +69,7 @@ public class CreateManufacturerDTOTest {
     @Test
     public void testSetCountry() {
         System.out.println("setCountry");
-        String country = "";
-        CreateManufacturerDTO instance = new CreateManufacturerDTO();
+        String country = "USA";
         instance.setCountry(country);
         assertEquals(country, instance.getCountry());
     }
@@ -91,8 +80,8 @@ public class CreateManufacturerDTOTest {
     @Test
     public void testGetWebsite() {
         System.out.println("getWebsite");
-        CreateManufacturerDTO instance = new CreateManufacturerDTO();
-        String expResult = "";
+        String expResult = "www.test.com";
+        instance.setWebsite(expResult);
         String result = instance.getWebsite();
         assertEquals(expResult, result);
     }
@@ -103,8 +92,7 @@ public class CreateManufacturerDTOTest {
     @Test
     public void testSetWebsite() {
         System.out.println("setWebsite");
-        String website = "";
-        CreateManufacturerDTO instance = new CreateManufacturerDTO();
+        String website = "www.test2.com";
         instance.setWebsite(website);
         assertEquals(website, instance.getWebsite());
     }
