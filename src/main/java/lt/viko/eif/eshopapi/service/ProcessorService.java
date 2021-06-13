@@ -30,6 +30,7 @@ public class ProcessorService {
         processor.setCoreAmount(dto.getCoreAmount());
         processor.setThreadAmount(dto.getThreadAmount());
         processor.setFrequency(dto.getFrequency());
+        processor.setFrequencyUnit(dto.getFrequencyUnit());
 
         //Relationships
         Optional<Manufacturer> manufacturer = manufacturerRepository.findById(dto.getManufacturerId());

@@ -1,5 +1,10 @@
 package lt.viko.eif.eshopapi.dto.processor;
 
+import lt.viko.eif.eshopapi.constant.FrequencyUnit;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 /**
  * Contains database variables and foreing keys
  * and contains those variable getters and setters
@@ -12,6 +17,8 @@ public class CreateProcessorDTO {
     private int coreAmount;
     private int threadAmount;
     private double frequency;
+    @Enumerated(EnumType.STRING)
+    private FrequencyUnit frequencyUnit;
     private Long manufacturerId;
 
     public String getName() { return name; }
@@ -29,6 +36,14 @@ public class CreateProcessorDTO {
     public double getFrequency() { return frequency; }
 
     public void setFrequency(double frequency) { this.frequency = frequency; }
+
+    public FrequencyUnit getFrequencyUnit() {
+        return frequencyUnit;
+    }
+
+    public void setFrequencyUnit(FrequencyUnit frequencyUnit) {
+        this.frequencyUnit = frequencyUnit;
+    }
 
     public Long getManufacturerId() { return manufacturerId; }
 
