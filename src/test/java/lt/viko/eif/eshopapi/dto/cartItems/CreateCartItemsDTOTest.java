@@ -33,8 +33,8 @@ public class CreateCartItemsDTOTest {
     @Test
     public void testGetComputerId() {
         System.out.println("getComputerId");
-        Long expResult = Long.valueOf(1);
-        instance.setCartId(Long.valueOf(1));
+        Long expResult = Long.valueOf(4);
+        instance.setComputerId(Long.valueOf(4));
         Long result = instance.getComputerId();
         assertEquals(expResult, result);
     }
