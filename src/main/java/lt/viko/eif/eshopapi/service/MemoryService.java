@@ -28,6 +28,7 @@ public class MemoryService {
         Memory memory = new Memory();
         memory.setName(dto.getName());
         memory.setAmount(dto.getAmount());
+        memory.setAmountUnit(dto.getAmountUnit());
 
         //Relationships
         Optional<Manufacturer> manufacturer = manufacturerRepository.findById(dto.getManufacturerId());
