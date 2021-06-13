@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.dto.memory;
 
 /**
- * Creating Memory class DTO
+ * Contains database variables and foreing keys
+ * and contains those variable getters and setters
+ * @author Lukas, Eimantas, Jonas, Karolis
+ * version 1.0
  */
 public class CreateMemoryDTO {
     private String name;
