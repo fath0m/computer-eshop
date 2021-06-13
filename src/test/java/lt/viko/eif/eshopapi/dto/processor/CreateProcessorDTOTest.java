@@ -14,10 +14,12 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Eimantas
  */
 public class CreateProcessorDTOTest {
-    
+
+    CreateProcessorDTO instance = new CreateProcessorDTO();
+
     public CreateProcessorDTOTest() {
     }
     
@@ -43,8 +45,8 @@ public class CreateProcessorDTOTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        String expResult = "";
+        String expResult = "name";
+        instance.setName("name");
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -55,10 +57,9 @@ public class CreateProcessorDTOTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        instance.setName(name);
-        assertEquals(name, instance.getName());
+        String expResult = "name";
+        instance.setName("name");
+        assertEquals(expResult, instance.getName());
     }
 
     /**
@@ -67,8 +68,8 @@ public class CreateProcessorDTOTest {
     @Test
     public void testGetCoreAmount() {
         System.out.println("getCoreAmount");
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        int expResult = 0;
+        int expResult = 1;
+        instance.setCoreAmount(1);
         int result = instance.getCoreAmount();
         assertEquals(expResult, result);
     }
@@ -79,9 +80,8 @@ public class CreateProcessorDTOTest {
     @Test
     public void testSetCoreAmount() {
         System.out.println("setCoreAmount");
-        int coreAmount = 0;
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        instance.setCoreAmount(coreAmount);
+        int coreAmount = 1;
+        instance.setCoreAmount(1);
         assertEquals(coreAmount, instance.getCoreAmount());
     }
 
@@ -91,8 +91,8 @@ public class CreateProcessorDTOTest {
     @Test
     public void testGetThreadAmount() {
         System.out.println("getThreadAmount");
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        int expResult = 0;
+        int expResult = 1;
+        instance.setThreadAmount(1);
         int result = instance.getThreadAmount();
         assertEquals(expResult, result);
     }
@@ -103,10 +103,9 @@ public class CreateProcessorDTOTest {
     @Test
     public void testSetThreadAmount() {
         System.out.println("setThreadAmount");
-        int threadAmount = 0;
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        instance.setThreadAmount(threadAmount);
-        assertEquals(threadAmount, instance.getThreadAmount());
+        int expResult = 1;
+        instance.setThreadAmount(1);
+        assertEquals(expResult, instance.getThreadAmount());
     }
 
     /**
@@ -115,8 +114,8 @@ public class CreateProcessorDTOTest {
     @Test
     public void testGetFrequency() {
         System.out.println("getFrequency");
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        double expResult = 0.0;
+        double expResult = 1.0;
+        instance.setFrequency(1.0);
         double result = instance.getFrequency();
         assertEquals(expResult, result, 0.0);
     }
@@ -127,10 +126,11 @@ public class CreateProcessorDTOTest {
     @Test
     public void testSetFrequency() {
         System.out.println("setFrequency");
-        double frequency = 0.0;
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        instance.setFrequency(frequency);
-        assertEquals(frequency, instance.getFrequency());
+        double expResult = 1.0;
+
+        instance.setFrequency(1.0);
+        double result = instance.getFrequency();
+        assertEquals(expResult, result,0.0);
     }
 
     /**
@@ -139,8 +139,8 @@ public class CreateProcessorDTOTest {
     @Test
     public void testGetManufacturerId() {
         System.out.println("getManufacturerId");
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setManufacturerId(Long.valueOf(1));
         Long result = instance.getManufacturerId();
         assertEquals(expResult, result);
     }
@@ -151,10 +151,10 @@ public class CreateProcessorDTOTest {
     @Test
     public void testSetManufacturerId() {
         System.out.println("setManufacturerId");
-        Long manufacturerId = null;
-        CreateProcessorDTO instance = new CreateProcessorDTO();
-        instance.setManufacturerId(manufacturerId);
-        assertEquals(manufacturerId, instance.getManufacturerId());
+        Long expResult = Long.valueOf(1);
+
+        instance.setManufacturerId(Long.valueOf(1));
+        assertEquals(expResult, instance.getManufacturerId());
     }
     
 }

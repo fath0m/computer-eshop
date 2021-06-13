@@ -10,14 +10,18 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.function.LongFunction;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Eimantas
  */
 public class CreateStorageDTOTest {
-    
+
+    CreateStorageDTO instance = new CreateStorageDTO();
     public CreateStorageDTOTest() {
     }
     
@@ -43,8 +47,8 @@ public class CreateStorageDTOTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        CreateStorageDTO instance = new CreateStorageDTO();
-        String expResult = "";
+        String expResult = "name";
+        instance.setName("name");
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -55,9 +59,8 @@ public class CreateStorageDTOTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        CreateStorageDTO instance = new CreateStorageDTO();
-        instance.setName(name);
+        String name = "name";
+        instance.setName("name");
         assertEquals(name, instance.getName());
     }
 
@@ -67,10 +70,10 @@ public class CreateStorageDTOTest {
     @Test
     public void testGetAmount() {
         System.out.println("getAmount");
-        CreateStorageDTO instance = new CreateStorageDTO();
-        double expResult = 0.0;
+        double expResult = 1.0;
+        instance.setAmount( 1.0 );
         double result = instance.getAmount();
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result,0.0);
     }
 
     /**
@@ -79,10 +82,9 @@ public class CreateStorageDTOTest {
     @Test
     public void testSetAmount() {
         System.out.println("setAmount");
-        double amount = 0.0;
-        CreateStorageDTO instance = new CreateStorageDTO();
+        double amount = 1.0;
         instance.setAmount(amount);
-        assertEquals(amount, instance.getAmount());
+        assertEquals(amount, instance.getAmount(),0.0);
     }
 
     /**
@@ -91,8 +93,8 @@ public class CreateStorageDTOTest {
     @Test
     public void testGetManufacturerId() {
         System.out.println("getManufacturerId");
-        CreateStorageDTO instance = new CreateStorageDTO();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setManufacturerId(Long.valueOf(1));
         Long result = instance.getManufacturerId();
         assertEquals(expResult, result);
     }
@@ -103,9 +105,9 @@ public class CreateStorageDTOTest {
     @Test
     public void testSetManufacturerId() {
         System.out.println("setManufacturerId");
-        Long manufacturerId = null;
-        CreateStorageDTO instance = new CreateStorageDTO();
-        instance.setManufacturerId(manufacturerId);
+        Long manufacturerId = Long.valueOf(1);
+
+        instance.setManufacturerId(Long.valueOf(1));
         assertEquals(manufacturerId, instance.getManufacturerId());
     }
     

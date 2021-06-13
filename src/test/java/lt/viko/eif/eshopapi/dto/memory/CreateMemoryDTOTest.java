@@ -5,11 +5,14 @@
  */
 package lt.viko.eif.eshopapi.dto.memory;
 
+import lt.viko.eif.eshopapi.model.Manufacturer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+
 import static org.junit.Assert.*;
 
 /**
@@ -17,24 +20,16 @@ import static org.junit.Assert.*;
  * @author Jonas
  */
 public class CreateMemoryDTOTest {
-    
+
+    CreateMemoryDTO instance = new CreateMemoryDTO();
     public CreateMemoryDTOTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
+
     
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
+    @AfterEach
     public void tearDown() {
+        instance = new CreateMemoryDTO();
     }
 
     /**
@@ -43,8 +38,8 @@ public class CreateMemoryDTOTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        CreateMemoryDTO instance = new CreateMemoryDTO();
-        String expResult = "";
+        String expResult = "MemTest";
+        instance.setName(expResult);
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -55,8 +50,7 @@ public class CreateMemoryDTOTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        CreateMemoryDTO instance = new CreateMemoryDTO();
+        String name = "TestMem";
         instance.setName(name);
         assertEquals(name, instance.getName());
     }
@@ -67,8 +61,8 @@ public class CreateMemoryDTOTest {
     @Test
     public void testGetAmount() {
         System.out.println("getAmount");
-        CreateMemoryDTO instance = new CreateMemoryDTO();
-        double expResult = 0.0;
+        double expResult = 250.0;
+        instance.setAmount(expResult);
         double result = instance.getAmount();
         assertEquals(expResult, result, 0.0);
     }
@@ -79,10 +73,9 @@ public class CreateMemoryDTOTest {
     @Test
     public void testSetAmount() {
         System.out.println("setAmount");
-        double amount = 0.0;
-        CreateMemoryDTO instance = new CreateMemoryDTO();
+        double amount = 270.0;
         instance.setAmount(amount);
-        assertEquals(amount, instance.getAmount());
+        assertEquals(amount, instance.getAmount(), 0.0);
     }
 
     /**
@@ -91,8 +84,8 @@ public class CreateMemoryDTOTest {
     @Test
     public void testGetManufacturerId() {
         System.out.println("getManufacturerId");
-        CreateMemoryDTO instance = new CreateMemoryDTO();
-        Long expResult = null;
+        instance.setManufacturerId(Long.valueOf(1));
+        Long expResult = Long.valueOf(1);
         Long result = instance.getManufacturerId();
         assertEquals(expResult, result);
     }
@@ -103,8 +96,8 @@ public class CreateMemoryDTOTest {
     @Test
     public void testSetManufacturerId() {
         System.out.println("setManufacturerId");
-        Long manufacturerId = null;
-        CreateMemoryDTO instance = new CreateMemoryDTO();
+        instance.setManufacturerId(Long.valueOf(2));
+        Long manufacturerId = (Long.valueOf(2));
         instance.setManufacturerId(manufacturerId);
         assertEquals(manufacturerId, instance.getManufacturerId());
     }
