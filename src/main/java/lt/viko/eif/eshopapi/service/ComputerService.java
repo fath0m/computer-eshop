@@ -22,6 +22,12 @@ import lt.viko.eif.eshopapi.repository.MotherboardRepository;
 import lt.viko.eif.eshopapi.repository.ProcessorRepository;
 import lt.viko.eif.eshopapi.repository.StorageRepository;
 
+/**
+ * Represents ComputerService Object that builds Computer
+ * from DTO,provides creation and update of Computer
+ * @author Karolis,Eimantas,Lukas
+ * version 1.0
+ */
 @Service
 public class ComputerService {
 	
