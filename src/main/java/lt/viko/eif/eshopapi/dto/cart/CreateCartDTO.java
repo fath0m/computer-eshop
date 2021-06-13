@@ -1,7 +1,11 @@
 package lt.viko.eif.eshopapi.dto.cart;
 
 /**
- * Dto for creating cart and check if its checked
+ * This class is responsible for Creating cartDTO
+ * This class has isCheckedOut and setCheckedOut that
+ * returns the value if its checked out true or false
+ * @author Lukas, Eimantas, Jonas, Karolis
+ * version 1.0
  */
 public class CreateCartDTO {
     private boolean isCheckedOut;
