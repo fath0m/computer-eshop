@@ -2,10 +2,8 @@ package lt.viko.eif.eshopapi.service;
 
 import lt.viko.eif.eshopapi.dto.memory.CreateMemoryDTO;
 import lt.viko.eif.eshopapi.dto.memory.UpdateMemoryDTO;
-import lt.viko.eif.eshopapi.dto.storage.CreateStorageDTO;
 import lt.viko.eif.eshopapi.model.Manufacturer;
 import lt.viko.eif.eshopapi.model.Memory;
-import lt.viko.eif.eshopapi.model.Storage;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
 import lt.viko.eif.eshopapi.repository.MemoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;

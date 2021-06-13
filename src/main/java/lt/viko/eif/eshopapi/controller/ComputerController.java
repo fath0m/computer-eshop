@@ -2,12 +2,9 @@ package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.computer.CreateComputerDTO;
 import lt.viko.eif.eshopapi.dto.computer.UpdateComputerDTO;
-import lt.viko.eif.eshopapi.dto.graphicsCard.UpdateGraphicsCardDTO;
 import lt.viko.eif.eshopapi.model.Computer;
-import lt.viko.eif.eshopapi.model.GraphicsCard;
 import lt.viko.eif.eshopapi.repository.ComputerRepository;
 import lt.viko.eif.eshopapi.service.ComputerService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;

@@ -5,7 +5,6 @@ import lt.viko.eif.eshopapi.dto.processor.UpdateProcessorDTO;
 import lt.viko.eif.eshopapi.model.Processor;
 import lt.viko.eif.eshopapi.repository.ProcessorRepository;
 import lt.viko.eif.eshopapi.service.ProcessorService;
-import org.apache.tomcat.jni.Proc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;

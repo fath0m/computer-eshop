@@ -2,7 +2,6 @@ package lt.viko.eif.eshopapi.service;
 
 import lt.viko.eif.eshopapi.dto.cartItems.CreateCartItemsDTO;
 import lt.viko.eif.eshopapi.dto.cartItems.UpdateCartItemsDTO;
-import lt.viko.eif.eshopapi.dto.computer.UpdateComputerDTO;
 import lt.viko.eif.eshopapi.model.Cart;
 import lt.viko.eif.eshopapi.model.CartItem;
 import lt.viko.eif.eshopapi.model.Computer;

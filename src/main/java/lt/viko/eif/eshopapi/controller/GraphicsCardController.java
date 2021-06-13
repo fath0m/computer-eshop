@@ -2,9 +2,7 @@ package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.graphicsCard.CreateGraphicsCardDTO;
 import lt.viko.eif.eshopapi.dto.graphicsCard.UpdateGraphicsCardDTO;
-import lt.viko.eif.eshopapi.dto.manufacturer.UpdateManufacturerDTO;
 import lt.viko.eif.eshopapi.model.GraphicsCard;
-import lt.viko.eif.eshopapi.model.Manufacturer;
 import lt.viko.eif.eshopapi.repository.GraphicsCardRepository;
 import lt.viko.eif.eshopapi.service.GraphicsCardService;
 import org.springframework.beans.factory.annotation.Autowired;

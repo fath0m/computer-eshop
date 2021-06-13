@@ -2,9 +2,7 @@ package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.memory.CreateMemoryDTO;
 import lt.viko.eif.eshopapi.dto.memory.UpdateMemoryDTO;
-import lt.viko.eif.eshopapi.dto.motherboard.UpdateMotherboardDTO;
 import lt.viko.eif.eshopapi.model.Memory;
-import lt.viko.eif.eshopapi.model.Motherboard;
 import lt.viko.eif.eshopapi.repository.MemoryRepository;
 import lt.viko.eif.eshopapi.service.MemoryService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,9 +2,7 @@ package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.payment.CreatePaymentDTO;
 import lt.viko.eif.eshopapi.dto.payment.UpdatePaymentDTO;
-import lt.viko.eif.eshopapi.dto.processor.UpdateProcessorDTO;
 import lt.viko.eif.eshopapi.model.Payment;
-import lt.viko.eif.eshopapi.model.Processor;
 import lt.viko.eif.eshopapi.repository.PaymentRepository;
 import lt.viko.eif.eshopapi.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;

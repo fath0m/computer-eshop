@@ -3,9 +3,7 @@ package lt.viko.eif.eshopapi.controller;
 
 import lt.viko.eif.eshopapi.dto.manufacturer.CreateManufacturerDTO;
 import lt.viko.eif.eshopapi.dto.manufacturer.UpdateManufacturerDTO;
-import lt.viko.eif.eshopapi.dto.memory.UpdateMemoryDTO;
 import lt.viko.eif.eshopapi.model.Manufacturer;
-import lt.viko.eif.eshopapi.model.Memory;
 import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
 import lt.viko.eif.eshopapi.service.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
