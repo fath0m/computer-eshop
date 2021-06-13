@@ -10,6 +10,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+
 import static org.junit.Assert.*;
 
 /**
@@ -17,24 +19,16 @@ import static org.junit.Assert.*;
  * @author Jonas
  */
 public class CreateMotherboardDTOTest {
-    
+
+    CreateMotherboardDTO instance = new CreateMotherboardDTO();
     public CreateMotherboardDTOTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
+
     
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
+    @AfterEach
     public void tearDown() {
+        instance = new CreateMotherboardDTO();
     }
 
     /**
@@ -43,8 +37,8 @@ public class CreateMotherboardDTOTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        CreateMotherboardDTO instance = new CreateMotherboardDTO();
-        String expResult = "";
+        String expResult = "Motherboard";
+        instance.setName(expResult);
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -55,8 +49,7 @@ public class CreateMotherboardDTOTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        CreateMotherboardDTO instance = new CreateMotherboardDTO();
+        String name = "MBoard";
         instance.setName(name);
         assertEquals(name, instance.getName());
     }
@@ -67,8 +60,8 @@ public class CreateMotherboardDTOTest {
     @Test
     public void testGetManufacturerId() {
         System.out.println("getManufacturerId");
-        CreateMotherboardDTO instance = new CreateMotherboardDTO();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setManufacturerId(expResult);
         Long result = instance.getManufacturerId();
         assertEquals(expResult, result);
     }
@@ -79,8 +72,7 @@ public class CreateMotherboardDTOTest {
     @Test
     public void testSetManufacturerId() {
         System.out.println("setManufacturerId");
-        Long manufacturerId = null;
-        CreateMotherboardDTO instance = new CreateMotherboardDTO();
+        Long manufacturerId = Long.valueOf(2);
         instance.setManufacturerId(manufacturerId);
         assertEquals(manufacturerId, instance.getManufacturerId());
     }
