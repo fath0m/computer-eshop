@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Represents ProcessorService Object that builds Processor
+ * from DTO, provides creation and update of Processor
+ * @author Karolis,Eimantas,Lukas
+ * version 1.0
+ */
 @Service
 public class ProcessorService {
     @Autowired
