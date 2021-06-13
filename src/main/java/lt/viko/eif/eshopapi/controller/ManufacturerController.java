@@ -20,6 +20,12 @@ import java.util.Optional;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+/**
+ * Represents Manufacturer Object which is responsible
+ * for GET, PUT, POST, DELTE Requests related with Cart
+ * @author Karolis, Lukas, Eimantas
+ * version 1.0
+ */
 @RestController
 @RequestMapping(value = "/manufacturers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ManufacturerController {
