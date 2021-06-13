@@ -6,19 +6,21 @@
 package lt.viko.eif.eshopapi.dto.computer;
 
 import lt.viko.eif.eshopapi.constant.Currency;
+import lt.viko.eif.eshopapi.model.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  *
- * @author Jonas
+ * @author Lukas, Karolis, Eimantas, Jonas
  */
 public class CreateComputerDTOTest {
-    
+    CreateComputerDTO instance = new CreateComputerDTO();
     public CreateComputerDTOTest() {
     }
     @After
@@ -31,8 +33,8 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        String expResult = "";
+        String expResult = "ALIENWARE";
+        instance.setName("ALIENWARE");
         String result = instance.getName();
         assertEquals(expResult, result);
     }
@@ -43,10 +45,9 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        String name = "";
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setName(name);
-        assertEquals(name, instance.getName());
+        String expResult = "ALIENWARE";
+        instance.setName("ALIENWARE");
+        assertEquals(expResult, instance.getName());
     }
 
     /**
@@ -55,10 +56,10 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetPrice() {
         System.out.println("getPrice");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        double expResult = 0.0;
+        double expResult = 900.0;
+        instance.setPrice(900.0);
         double result = instance.getPrice();
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result,0.0 );
     }
 
     /**
@@ -67,10 +68,9 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetPrice() {
         System.out.println("setPrice");
-        double price = 0.0;
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setPrice(price);
-        assertEquals(price, instance.getPrice());
+        double expResult = 900.0;
+        instance.setPrice(900.0);
+        assertEquals(expResult, instance.getPrice(), 0.0);
     }
 
     /**
@@ -79,8 +79,8 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetCurrency() {
         System.out.println("getCurrency");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        Currency expResult = null;
+        Currency expResult = Currency.EUR;
+        instance.setCurrency(Currency.EUR);
         Currency result = instance.getCurrency();
         assertEquals(expResult, result);
     }
@@ -91,10 +91,9 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetCurrency() {
         System.out.println("setCurrency");
-        Currency currency = null;
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setCurrency(currency);
-        assertEquals(currency, instance.getCurrency());
+        Currency expResult = Currency.EUR;
+        instance.setCurrency(Currency.EUR);
+        assertEquals(expResult, instance.getCurrency());
     }
 
     /**
@@ -103,8 +102,8 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetStockQuantity() {
         System.out.println("getStockQuantity");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        int expResult = 0;
+        int expResult = 3;
+        instance.setStockQuantity(3);
         int result = instance.getStockQuantity();
         assertEquals(expResult, result);
     }
@@ -115,10 +114,9 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetStockQuantity() {
         System.out.println("setStockQuantity");
-        int stockQuantity = 0;
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setStockQuantity(stockQuantity);
-        assertEquals(stockQuantity, instance.getStockQuantity());
+        int expResult = 2;
+        instance.setStockQuantity(2);
+        assertEquals(expResult, instance.getStockQuantity());
     }
 
     /**
@@ -127,10 +125,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetManufacturerId() {
         System.out.println("getManufacturerId");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        Long expResult = null;
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(7));
+        instance.setManufacturerId(manufacturer.getId());
         Long result = instance.getManufacturerId();
-        assertEquals(expResult, result);
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -139,10 +138,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetManufacturerId() {
         System.out.println("setManufacturerId");
-        Long manufacturerId = null;
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setManufacturerId(manufacturerId);
-        assertEquals(manufacturerId, instance.getManufacturerId());
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(Long.valueOf(7));
+        instance.setManufacturerId(manufacturer.getId());
+        Long result = instance.getManufacturerId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -151,10 +151,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetProcessorId() {
         System.out.println("getProcessorId");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        Long expResult = null;
+        Processor processor = new Processor();
+        processor.setId(Long.valueOf(7));
+        instance.setProcessorId(processor.getId());
         Long result = instance.getProcessorId();
-        assertEquals(expResult, result);
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -163,10 +164,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetProcessorId() {
         System.out.println("setProcessorId");
-        Long processorId = null;
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setProcessorId(processorId);
-        assertEquals(processorId, instance.getProcessorId());
+        Processor processor = new Processor();
+        processor.setId(Long.valueOf(7));
+        instance.setProcessorId(processor.getId());
+        Long result = instance.getProcessorId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -175,10 +177,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetGraphicsCardId() {
         System.out.println("getGraphicsCardId");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        Long expResult = null;
+        GraphicsCard graphicsCard = new GraphicsCard();
+        graphicsCard.setId(Long.valueOf(7));
+        instance.setGraphicsCardId(graphicsCard.getId());
         Long result = instance.getGraphicsCardId();
-        assertEquals(expResult, result);
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -187,10 +190,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetGraphicsCardId() {
         System.out.println("setGraphicsCardId");
-        Long graphicsCardId = null;
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setGraphicsCardId(graphicsCardId);
-        assertEquals(graphicsCardId, instance.getGraphicsCardId());
+        GraphicsCard graphicsCard = new GraphicsCard();
+        graphicsCard.setId(Long.valueOf(7));
+        instance.setGraphicsCardId(graphicsCard.getId());
+        Long result = instance.getGraphicsCardId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -199,10 +203,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetMemoryId() {
         System.out.println("getMemoryId");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        Long expResult = null;
+        Memory memory = new Memory();
+        memory.setId(Long.valueOf(7));
+        instance.setMemoryId(memory.getId());
         Long result = instance.getMemoryId();
-        assertEquals(expResult, result);
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -211,10 +216,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetMemoryId() {
         System.out.println("setMemoryId");
-        Long memoryId = null;
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setMemoryId(memoryId);
-        assertEquals(memoryId, instance.getMemoryId());
+        Memory memory = new Memory();
+        memory.setId(Long.valueOf(7));
+        instance.setMemoryId(memory.getId());
+        Long result = instance.getMemoryId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -223,10 +229,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetStorageId() {
         System.out.println("getStorageId");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        Long expResult = null;
+        Storage storage = new Storage();
+        storage.setId(Long.valueOf(7));
+        instance.setStorageId(storage.getId());
         Long result = instance.getStorageId();
-        assertEquals(expResult, result);
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -235,10 +242,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetStorageId() {
         System.out.println("setStorageId");
-        Long storageId = null;
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setStorageId(storageId);
-        assertEquals(storageId, instance.getStorageId());
+        Storage storage = new Storage();
+        storage.setId(Long.valueOf(7));
+        instance.setStorageId(storage.getId());
+        Long result = instance.getStorageId();
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -247,10 +255,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testGetMotherboardId() {
         System.out.println("getMotherboardId");
-        CreateComputerDTO instance = new CreateComputerDTO();
-        Long expResult = null;
+        Motherboard motherboard = new Motherboard();
+        motherboard.setId(Long.valueOf(7));
+        instance.setMotherboardId(motherboard.getId());
         Long result = instance.getMotherboardId();
-        assertEquals(expResult, result);
+        assertEquals(Long.valueOf(7), result);
     }
 
     /**
@@ -259,10 +268,11 @@ public class CreateComputerDTOTest {
     @Test
     public void testSetMotherboardId() {
         System.out.println("setMotherboardId");
-        Long motherboardId = null;
-        CreateComputerDTO instance = new CreateComputerDTO();
-        instance.setMotherboardId(motherboardId);
-        assertEquals(motherboardId, instance.getMotherboardId());
+        Motherboard motherboard = new Motherboard();
+        motherboard.setId(Long.valueOf(7));
+        instance.setMotherboardId(motherboard.getId());
+        Long result = instance.getMotherboardId();
+        assertEquals(Long.valueOf(7), result);
     }
     
 }

@@ -14,23 +14,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jonas
+ * @author Lukas, Karolis, Eimantas, Jonas
  */
 public class UpdateComputerDTOTest {
     
     public UpdateComputerDTOTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
     }
     
     @After
