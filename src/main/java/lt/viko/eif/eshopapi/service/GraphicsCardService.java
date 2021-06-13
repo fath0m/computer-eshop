@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Represents GraphicsCardService Object that builds GraphicsCard
+ * from DTO,provides creation and update of GraphicsCard
+ * @author Karolis,Eimantas,Lukas
+ * version 1.0
+ */
 @Service
 public class GraphicsCardService {
     @Autowired

@@ -7,6 +7,12 @@ import lt.viko.eif.eshopapi.repository.ManufacturerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Represents ManufacturerService Object that builds Manufacturer
+ * from DTO,provides creation and update of Manufacturer
+ * @author Karolis,Eimantas,Lukas
+ * version 1.0
+ */
 @Service
 public class ManufacturerService {
     @Autowired
