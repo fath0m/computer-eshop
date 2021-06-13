@@ -1,5 +1,11 @@
 package lt.viko.eif.eshopapi.dto.graphicsCard;
 
+/**
+ * Stores database variables and foreing keys
+ * this class contains those variable getters and setters
+ * @author Lukas, Eimantas, Jonas, Karolis
+ * version 1.0
+ */
 public class CreateGraphicsCardDTO {
     private String name;
     private Long manufacturer_id;
