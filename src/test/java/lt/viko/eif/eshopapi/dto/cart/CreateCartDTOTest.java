@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jonas, Lukas
+ * @author Jonas, Lukas, Eimantas, Karolis
  */
 public class CreateCartDTOTest {
     CreateCartDTO instance = new CreateCartDTO();

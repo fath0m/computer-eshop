@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Karolis, Eimantas, Lukas
  */
 public class CreateCartItemsDTOTest {
 
@@ -45,10 +45,10 @@ public class CreateCartItemsDTOTest {
     @Test
     public void testSetComputerId() {
         System.out.println("setComputerId");
-        Long computerId = null;
-        CreateCartItemsDTO instance = new CreateCartItemsDTO();
-        instance.setComputerId(computerId);
-        assertEquals(computerId, instance.getComputerId());
+        Long computerId = Long.valueOf(2);
+        instance.setComputerId(Long.valueOf(2));
+        Long result = instance.getComputerId();
+        assertEquals(computerId, result);
     }
 
     /**
@@ -57,10 +57,9 @@ public class CreateCartItemsDTOTest {
     @Test
     public void testGetCartId() {
         System.out.println("getCartId");
-        CreateCartItemsDTO instance = new CreateCartItemsDTO();
-        Long expResult = null;
-        Long result = instance.getCartId();
-        assertEquals(expResult, result);
+        Long expResult = Long.valueOf(2);
+        instance.setComputerId(Long.valueOf(2));
+        assertEquals(expResult, instance.getComputerId());
     }
 
     /**
@@ -69,10 +68,10 @@ public class CreateCartItemsDTOTest {
     @Test
     public void testSetCartId() {
         System.out.println("setCartId");
-        Long cartId = null;
-        CreateCartItemsDTO instance = new CreateCartItemsDTO();
-        instance.setCartId(cartId);
-        assertEquals(cartId, instance.getCartId());
+        Long expResult = Long.valueOf(2);
+        instance.setCartId(Long.valueOf(2));
+        Long result = instance.getCartId();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -81,8 +80,8 @@ public class CreateCartItemsDTOTest {
     @Test
     public void testGetQuantity() {
         System.out.println("getQuantity");
-        CreateCartItemsDTO instance = new CreateCartItemsDTO();
-        Long expResult = null;
+        Long expResult = Long.valueOf(3);
+        instance.setQuantity(Long.valueOf(3));
         Long result = instance.getQuantity();
         assertEquals(expResult, result);
     }
@@ -93,10 +92,10 @@ public class CreateCartItemsDTOTest {
     @Test
     public void testSetQuantity() {
         System.out.println("setQuantity");
-        Long quantity = null;
-        CreateCartItemsDTO instance = new CreateCartItemsDTO();
-        instance.setQuantity(quantity);
-        assertEquals(quantity, instance.getQuantity());
+        Long expResult = Long.valueOf(2);
+        instance.setQuantity(Long.valueOf(2));
+        Long result = instance.getQuantity();
+        assertEquals(expResult, result);
     }
     
 }
