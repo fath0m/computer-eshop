@@ -14,25 +14,13 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Lukas, Eimantas, Karolis
  */
 public class UpdateCheckoutDTOTest {
-    
+    UpdateCheckoutDTO instance = new UpdateCheckoutDTO();
     public UpdateCheckoutDTOTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,8 +31,8 @@ public class UpdateCheckoutDTOTest {
     @Test
     public void testIsPaidOut() {
         System.out.println("isPaidOut");
-        UpdateCheckoutDTO instance = new UpdateCheckoutDTO();
-        boolean expResult = false;
+        boolean expResult = true;
+        instance.setPaidOut(true);
         boolean result = instance.isPaidOut();
         assertEquals(expResult, result);
     }
@@ -55,10 +43,9 @@ public class UpdateCheckoutDTOTest {
     @Test
     public void testSetPaidOut() {
         System.out.println("setPaidOut");
-        boolean paidOut = false;
-        UpdateCheckoutDTO instance = new UpdateCheckoutDTO();
-        instance.setPaidOut(paidOut);
-        assertEquals(paidOut, instance.isPaidOut());
+        boolean expResult = true;
+        instance.setPaidOut(true);
+        assertEquals(expResult, instance.isPaidOut());
     }
     
 }

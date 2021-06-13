@@ -14,10 +14,10 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Lukas, Eimantas, Karolis
  */
 public class CreateCheckoutDTOTest {
-    
+    CreateCheckoutDTO instance = new CreateCheckoutDTO();
     public CreateCheckoutDTOTest() {
     }
     
@@ -43,8 +43,8 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testGetFirstName() {
         System.out.println("getFirstName");
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        String expResult = "";
+        String expResult = "FIRSTNAME";
+        instance.setFirstName("FIRSTNAME");
         String result = instance.getFirstName();
         assertEquals(expResult, result);
     }
@@ -55,10 +55,10 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testSetFirstName() {
         System.out.println("setFirstName");
-        String firstName = "";
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        instance.setFirstName(firstName);
-        assertEquals(firstName, instance.getFirstName());
+        String expResult = "BIG";
+        instance.setFirstName("BIG");
+        String result = instance.getFirstName();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -67,8 +67,8 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testGetLastName() {
         System.out.println("getLastName");
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        String expResult = "";
+        String expResult = "LASTNAME";
+        instance.setLastName("LASTNAME");
         String result = instance.getLastName();
         assertEquals(expResult, result);
     }
@@ -79,10 +79,9 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testSetLastName() {
         System.out.println("setLastName");
-        String lastName = "";
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        instance.setLastName(lastName);
-        assertEquals(lastName, instance.getLastName());
+        String expResult = "LASTNAME";
+        instance.setLastName("LASTNAME");
+        assertEquals(expResult, instance.getLastName());
     }
 
     /**
@@ -91,8 +90,8 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testGetDeliveryAddress() {
         System.out.println("getDeliveryAddress");
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        String expResult = "";
+        String expResult = "JUSTINISKES";
+        instance.setDeliveryAddress("JUSTINISKES");
         String result = instance.getDeliveryAddress();
         assertEquals(expResult, result);
     }
@@ -103,10 +102,9 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testSetDeliveryAddress() {
         System.out.println("setDeliveryAddress");
-        String deliveryAddress = "";
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        instance.setDeliveryAddress(deliveryAddress);
-        assertEquals(deliveryAddress, instance.getDeliveryAddress());
+        String expResult = "JUSTINISKES";
+        instance.setDeliveryAddress("JUSTINISKES");
+        assertEquals(expResult, instance.getDeliveryAddress());
     }
 
     /**
@@ -115,8 +113,8 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testGetDeliveryCity() {
         System.out.println("getDeliveryCity");
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        String expResult = "";
+        String expResult = "vilnius";
+        instance.setDeliveryCity("vilnius");
         String result = instance.getDeliveryCity();
         assertEquals(expResult, result);
     }
@@ -127,10 +125,9 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testSetDeliveryCity() {
         System.out.println("setDeliveryCity");
-        String deliveryCity = "";
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        instance.setDeliveryCity(deliveryCity);
-        assertEquals(deliveryCity, instance.getDeliveryCity());
+        String expResult = "vilnius";
+        instance.setDeliveryCity("vilnius");
+        assertEquals(expResult, instance.getDeliveryCity());
     }
 
     /**
@@ -139,8 +136,8 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testGetDeliveryCountry() {
         System.out.println("getDeliveryCountry");
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        String expResult = "";
+        String expResult = "LIETUVA";
+        instance.setDeliveryCountry("LIETUVA");
         String result = instance.getDeliveryCountry();
         assertEquals(expResult, result);
     }
@@ -151,10 +148,9 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testSetDeliveryCountry() {
         System.out.println("setDeliveryCountry");
-        String deliveryCountry = "";
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        instance.setDeliveryCountry(deliveryCountry);
-        assertEquals(deliveryCountry, instance.getDeliveryCountry());
+        String expResult = "LIETUVA";
+        instance.setDeliveryCountry("LIETUVA");
+        assertEquals(expResult, instance.getDeliveryCountry());
     }
 
     /**
@@ -163,8 +159,8 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testGetCardId() {
         System.out.println("getCardId");
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        Long expResult = null;
+        Long expResult = Long.valueOf(2);
+        instance.setCardId(Long.valueOf(2));
         Long result = instance.getCardId();
         assertEquals(expResult, result);
     }
@@ -175,10 +171,9 @@ public class CreateCheckoutDTOTest {
     @Test
     public void testSetCardId() {
         System.out.println("setCardId");
-        Long cardId = null;
-        CreateCheckoutDTO instance = new CreateCheckoutDTO();
-        instance.setCardId(cardId);
-        assertEquals(cardId, instance.getCardId());
+        Long expResult = Long.valueOf(2);
+        instance.setCardId(Long.valueOf(2));
+        assertEquals(expResult, instance.getCardId());
     }
     
 }
