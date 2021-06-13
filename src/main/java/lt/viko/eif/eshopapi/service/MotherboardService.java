@@ -11,6 +11,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Represents MotherboardService Object that builds Motherboard
+ * from DTO, provides creation and update of Motherboard
+ * @author Karolis,Eimantas,Lukas
+ */
 @Service
 public class MotherboardService {
 
