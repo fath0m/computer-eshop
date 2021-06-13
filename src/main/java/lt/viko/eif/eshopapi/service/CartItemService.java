@@ -13,6 +13,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Represents CartItemService Object that builds CartItem
+ * from DTO, check if Cart Item is Valid, provides creation
+ * and update of CartItem
+ * @author Karolis,Eimantas,Lukas,Jonas
+ * version 1.0
+ */
 @Service
 public class CartItemService {
     /**
