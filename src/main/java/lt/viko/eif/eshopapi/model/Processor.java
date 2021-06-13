@@ -11,7 +11,7 @@ import java.util.Set;
  * Represents Processor object which has ManyToOne connections
  * with other Tables Manufacturer. And OneToMany with computers
  * This class is responsible for getting, setting properties
- * @author Lukas, Eimantas, Jonas, Karolis
+ * @author Lukas, Eimantas, Karolis
  */
 @Entity
 @Table(name = "processors")

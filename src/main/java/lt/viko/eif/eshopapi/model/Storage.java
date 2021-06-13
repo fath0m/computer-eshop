@@ -12,7 +12,7 @@ import java.util.Set;
  * Represents Storage object which has ManyToOne connections
  * with other Tables Manufacturer. And OneToMany with computers
  * This class is responsible for getting, setting properties
- * @author Lukas, Eimantas, Jonas, Karolis
+ * @author Lukas, Eimantas, Karolis
  * version 1.0
  */
 @Entity
