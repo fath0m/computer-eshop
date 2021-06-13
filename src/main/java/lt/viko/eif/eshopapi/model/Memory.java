@@ -25,7 +25,7 @@ public class Memory {
     private Manufacturer manufacturer;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "memory")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "memory", orphanRemoval = true)
     private Set<Computer> computers;
 
     public Long getId() {

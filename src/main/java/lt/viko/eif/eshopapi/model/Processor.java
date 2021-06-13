@@ -23,11 +23,11 @@ public class Processor {
 
     @JsonManagedReference
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "manufacturer_id", nullable = false)
+    @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "processor")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "processor", orphanRemoval = true)
     private Set<Computer> computers;
 
     public Long getId() {

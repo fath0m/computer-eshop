@@ -21,7 +21,7 @@ public class GraphicsCard {
     private Manufacturer manufacturer;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "graphicsCard")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "graphicsCard", orphanRemoval = true)
     private Set<Computer> computers;
 
     public Long getId() {

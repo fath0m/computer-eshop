@@ -21,7 +21,7 @@ public class Motherboard {
     private Manufacturer manufacturer;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "storage")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "storage", orphanRemoval = true)
     private Set<Computer> computers;
 
     public Long getId() { return id; }

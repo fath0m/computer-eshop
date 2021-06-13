@@ -25,27 +25,27 @@ public class Computer {
 
     @JsonManagedReference
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "processor_id", nullable = false)
+    @JoinColumn(name = "processor_id")
     private Processor processor;
 
     @JsonManagedReference
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "graphics_card_id", nullable = false)
+    @JoinColumn(name = "graphics_card_id")
     private GraphicsCard graphicsCard;
 
     @JsonManagedReference
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "memory_id", nullable = false)
+    @JoinColumn(name = "memory_id")
     private Memory memory;
 
     @JsonManagedReference
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "storage_id", nullable = false)
+    @JoinColumn(name = "storage_id")
     private Storage storage;
 
     @JsonManagedReference
-    @ManyToOne(fetch = FetchType.EAGER,optional = false)
-    @JoinColumn(name="motherboard_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name="motherboard_id")
     private Motherboard motherboard;
 
     public Long getId() {

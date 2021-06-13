@@ -17,23 +17,23 @@ public class Manufacturer {
     private String website;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
     private Set<Computer> computers;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
     private Set<GraphicsCard> graphicsCards;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
     private Set<Memory> memories;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
     private Set<Processor> processors;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
     private Set<Storage> storages;
 
     public Long getId() {
