@@ -11,6 +11,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Represents MemoryService Object that builds Memory
+ * from DTO, provides creation and update of Memory
+ * @author Karolis,Eimantas,Lukas
+ */
 @Service
 public class MemoryService {
     @Autowired
