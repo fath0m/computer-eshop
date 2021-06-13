@@ -21,7 +21,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 /**
  * Represents CartController object which is responsible
- * for GET, PUT, POST, DELTE Requests related with Cart
+ * for GET, PUT, POST, DELETE Requests related with Cart
  * @author Karolis, Lukas, Eimantas
  * version 1.0
  */
