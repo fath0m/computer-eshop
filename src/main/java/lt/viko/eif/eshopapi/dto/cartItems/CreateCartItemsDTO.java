@@ -3,7 +3,7 @@ package lt.viko.eif.eshopapi.dto.cartItems;
 /**
  * This class stores database id's
  * and stores those id's setters and getters
- * @author Lukas, Eimantas, Jonas, Karolis
+ * @author Lukas, Eimantas, Karolis
  * version 1.0
  */
 public class CreateCartItemsDTO {

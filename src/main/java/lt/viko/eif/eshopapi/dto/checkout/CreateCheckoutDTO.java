@@ -3,7 +3,7 @@ package lt.viko.eif.eshopapi.dto.checkout;
 /**
  * Stores database variables and
  * this class contains these variable getters and setters
- * @author Lukas, Eimantas, Jonas, Karolis
+ * @author Lukas, Eimantas, Karolis
  * version 1.0
  */
 public class CreateCheckoutDTO {
