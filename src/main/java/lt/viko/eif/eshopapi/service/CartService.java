@@ -7,6 +7,12 @@ import lt.viko.eif.eshopapi.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Represents CartService Object that builds Cart
+ * from DTO,provides creation and update of Cart
+ * @author Karolis,Eimantas,Lukas
+ * version 1.0
+ */
 @Service
 public class CartService {
     @Autowired
