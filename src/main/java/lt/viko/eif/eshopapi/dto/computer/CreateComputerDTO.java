@@ -5,6 +5,12 @@ import lt.viko.eif.eshopapi.constant.Currency;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+/**
+ * Stores database variables and foreing keys
+ * this class contains those variable getters and setters
+ * @author Lukas, Eimantas, Jonas, Karolis
+ * version 1.0
+ */
 public class CreateComputerDTO {
 
 	private String name;
