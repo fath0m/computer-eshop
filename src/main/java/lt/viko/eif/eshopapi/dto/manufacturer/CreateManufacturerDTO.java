@@ -1,7 +1,10 @@
 package lt.viko.eif.eshopapi.dto.manufacturer;
 
 /**
- * DTO manufacturer
+ * Stores database variables
+ * this class contains those variable getters and setters
+ * @author Lukas, Eimantas, Jonas, Karolis
+ * version 1.0
  */
 public class CreateManufacturerDTO {
 
