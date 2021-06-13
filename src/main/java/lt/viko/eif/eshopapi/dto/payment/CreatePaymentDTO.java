@@ -7,7 +7,7 @@ import java.sql.Date;
 /**
  * Contains database variables
  * and contains those variable getters and setters
- * @author Lukas, Eimantas, Jonas, Karolis
+ * @author Lukas, Eimantas, Karolis
  * version 1.0
  */
 public class CreatePaymentDTO {
