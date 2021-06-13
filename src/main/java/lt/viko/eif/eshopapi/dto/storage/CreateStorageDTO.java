@@ -1,5 +1,11 @@
 package lt.viko.eif.eshopapi.dto.storage;
 
+import lt.viko.eif.eshopapi.constant.SizeUnit;
+import lt.viko.eif.eshopapi.constant.StorageType;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 /**
  * Contains database variables and foreing keys
  * and contains those variable getters and setters
@@ -9,6 +15,10 @@ package lt.viko.eif.eshopapi.dto.storage;
 public class CreateStorageDTO {
     private String name;
     private double amount;
+    @Enumerated(EnumType.STRING)
+    private SizeUnit amountUnit;
+    @Enumerated(EnumType.STRING)
+    private StorageType storageType;
     private Long manufacturerId;
 
     public String getName() {
@@ -25,6 +35,22 @@ public class CreateStorageDTO {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public SizeUnit getAmountUnit() {
+        return amountUnit;
+    }
+
+    public void setAmountUnit(SizeUnit amountUnit) {
+        this.amountUnit = amountUnit;
+    }
+
+    public StorageType getStorageType() {
+        return storageType;
+    }
+
+    public void setStorageType(StorageType storageType) {
+        this.storageType = storageType;
     }
 
     public Long getManufacturerId() {

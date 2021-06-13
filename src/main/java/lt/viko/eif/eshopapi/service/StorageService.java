@@ -28,6 +28,8 @@ public class StorageService {
         Storage storage = new Storage();
         storage.setName(dto.getName());
         storage.setAmount(dto.getAmount());
+        storage.setAmountUnit(dto.getAmountUnit());
+        storage.setStorageType(dto.getStorageType());
 
         //Relationships
         Optional<Manufacturer> manufacturer = manufacturerRepository.findById(dto.getManufacturerId());
