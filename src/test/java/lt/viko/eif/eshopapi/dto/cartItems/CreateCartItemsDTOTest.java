@@ -17,22 +17,12 @@ import static org.junit.Assert.*;
  * @author Jonas
  */
 public class CreateCartItemsDTOTest {
-    
+
+    CreateCartItemsDTO instance = new CreateCartItemsDTO();
+
     public CreateCartItemsDTOTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,8 +33,8 @@ public class CreateCartItemsDTOTest {
     @Test
     public void testGetComputerId() {
         System.out.println("getComputerId");
-        CreateCartItemsDTO instance = new CreateCartItemsDTO();
-        Long expResult = null;
+        Long expResult = Long.valueOf(1);
+        instance.setCartId(Long.valueOf(1));
         Long result = instance.getComputerId();
         assertEquals(expResult, result);
     }

@@ -14,23 +14,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jonas
+ * @author Jonas, Lukas
  */
 public class CreateCartDTOTest {
-    
+    CreateCartDTO instance = new CreateCartDTO();
     public CreateCartDTOTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
     }
     
     @After
@@ -43,8 +31,8 @@ public class CreateCartDTOTest {
     @Test
     public void testIsCheckedOut() {
         System.out.println("isCheckedOut");
-        CreateCartDTO instance = new CreateCartDTO();
-        boolean expResult = false;
+        boolean expResult = true;
+        instance.setCheckedOut(true);
         boolean result = instance.isCheckedOut();
         assertEquals(expResult, result);
     }
@@ -55,9 +43,8 @@ public class CreateCartDTOTest {
     @Test
     public void testSetCheckedOut() {
         System.out.println("setCheckedOut");
-        boolean checkedOut = false;
-        CreateCartDTO instance = new CreateCartDTO();
-        instance.setCheckedOut(checkedOut);
+        boolean checkedOut = true;
+        instance.setCheckedOut(true);
         assertEquals(checkedOut, instance.isCheckedOut());
     }
     
