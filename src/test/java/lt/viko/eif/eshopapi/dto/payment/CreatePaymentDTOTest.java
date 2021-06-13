@@ -19,6 +19,8 @@ import static org.junit.Assert.*;
  */
 public class CreatePaymentDTOTest {
 
+    CreatePaymentDTO instance = new CreatePaymentDTO();
+
     public CreatePaymentDTOTest() {
     }
 
@@ -44,8 +46,9 @@ public class CreatePaymentDTOTest {
     @Test
     public void testGetCheckOutId() {
         System.out.println("getCheckOutId");
-        CreatePaymentDTO instance = new CreatePaymentDTO();
-        Long expResult = null;
+
+        Long expResult = Long.valueOf(1);
+        instance.setCheckOutId(Long.valueOf(1));
         Long result = instance.getCheckOutId();
         assertEquals(expResult, result);
     }
@@ -56,9 +59,9 @@ public class CreatePaymentDTOTest {
     @Test
     public void testSetCheckOutId() {
         System.out.println("setCheckOutId");
-        Long checkOutId = null;
-        CreatePaymentDTO instance = new CreatePaymentDTO();
-        instance.setCheckOutId(checkOutId);
+        Long checkOutId = Long.valueOf(1);
+
+        instance.setCheckOutId(Long.valueOf(1));
         assertEquals(checkOutId, instance.getCheckOutId());
     }
 
@@ -68,8 +71,9 @@ public class CreatePaymentDTOTest {
     @Test
     public void testGetAmountPaid() {
         System.out.println("getAmountPaid");
-        CreatePaymentDTO instance = new CreatePaymentDTO();
-        double expResult = 0.0;
+
+        double expResult = 1.0;
+        instance.setAmountPaid(1.0);
         double result = instance.getAmountPaid();
         assertEquals(expResult, result, 0.0);
     }
@@ -80,11 +84,11 @@ public class CreatePaymentDTOTest {
     @Test
     public void testSetAmountPaid() {
         System.out.println("setAmountPaid");
-        double amountPaid = 0.0;
-        CreatePaymentDTO instance = new CreatePaymentDTO();
-        instance.setAmountPaid(amountPaid);
+        double amountPaid = 1.0;
 
-        assertEquals(amountPaid, instance.getAmountPaid());
+        instance.setAmountPaid(1.0);
+
+        assertEquals(amountPaid, instance.getAmountPaid(),0.0);
     }
 
     /**
@@ -93,8 +97,9 @@ public class CreatePaymentDTOTest {
     @Test
     public void testGetPaidAt() {
         System.out.println("getPaidAt");
-        CreatePaymentDTO instance = new CreatePaymentDTO();
-        Date expResult = null;
+        String str = "2020-05-06";
+        Date expResult = Date.valueOf(str);
+        instance.setPaidAt(expResult);
         Date result = instance.getPaidAt();
         assertEquals(expResult, result);
     }
@@ -105,10 +110,10 @@ public class CreatePaymentDTOTest {
     @Test
     public void testSetPaidAt() {
         System.out.println("setPaidAt");
-        Date paidAt = null;
-        CreatePaymentDTO instance = new CreatePaymentDTO();
-        instance.setPaidAt(paidAt);
-        assertEquals(paidAt, instance.getPaidAt());
+        String str = "2020-05-06";
+        Date result = Date.valueOf(str);
+        instance.setPaidAt(result);
+        assertEquals(result, instance.getPaidAt());
     }
 
 }
