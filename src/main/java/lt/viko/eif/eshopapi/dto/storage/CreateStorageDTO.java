@@ -1,5 +1,11 @@
 package lt.viko.eif.eshopapi.dto.storage;
 
+/**
+ * Contains database variables and foreing keys
+ * and contains those variable getters and setters
+ * @author Lukas, Eimantas, Jonas, Karolis
+ * version 1.0
+ */
 public class CreateStorageDTO {
     private String name;
     private double amount;
