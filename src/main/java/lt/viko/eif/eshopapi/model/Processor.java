@@ -37,7 +37,7 @@ public class Processor {
      * Setting OneToMany connection with computers
      */
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "processor", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "processor", cascade = CascadeType.ALL)
     private Set<Computer> computers;
 
     /**

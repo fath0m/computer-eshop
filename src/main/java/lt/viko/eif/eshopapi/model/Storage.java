@@ -39,7 +39,7 @@ public class Storage {
      * Setting OneToMany connection with computers
      */
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "storage", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "storage", cascade = CascadeType.ALL)
     private Set<Computer> computers;
 
     /**

@@ -34,7 +34,7 @@ public class GraphicsCard {
      * Setting OneToMany connection with computer
      */
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "graphicsCard", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "graphicsCard", cascade = CascadeType.ALL)
     private Set<Computer> computers;
 
     /**

@@ -25,31 +25,31 @@ public class Manufacturer {
      * Setting OneToMany connection with computers
      */
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", cascade = CascadeType.ALL)
     private Set<Computer> computers;
     /**
      * Setting OneToMany connection with graphicsCards
      */
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", cascade = CascadeType.ALL)
     private Set<GraphicsCard> graphicsCards;
     /**
      * Setting OneToMany connection with memories
      */
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", cascade = CascadeType.ALL)
     private Set<Memory> memories;
     /**
      * Setting OneToMany connection with processors
      */
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", cascade = CascadeType.ALL)
     private Set<Processor> processors;
     /**
      * Setting OneToMany connection with storages
      */
     @JsonBackReference
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer", cascade = CascadeType.ALL)
     private Set<Storage> storages;
 
     /**
