@@ -18,7 +18,6 @@ import java.util.Optional;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilderDslKt.withRel;
 
 /**
  * Represents CheckoutController object which is responsible
